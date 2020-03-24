@@ -15,6 +15,8 @@ public class City implements Serializable{
     private int city_id;
     @Column(name="city",nullable = false )
     private String city;
+    @Column(name="country_id",nullable = false )
+    private String country_id;
     @Column(name="last_update",nullable = false )
     private String last_update;
 
