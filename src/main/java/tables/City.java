@@ -16,7 +16,7 @@ public class City implements Serializable{
     @Column(name="city",nullable = false )
     private String city;
     @Column(name="country_id",nullable = false )
-    private String country_id;
+    private int country_id;
     @Column(name="last_update",nullable = false )
     private String last_update;
 
@@ -26,7 +26,15 @@ public class City implements Serializable{
         city_id=a;
     }
 
-    public void setCountry(String city) {
+    public int getCountry_id() {
+        return country_id;
+    }
+
+    public void setCountry_id(int country_id) {
+        this.country_id = country_id;
+    }
+
+    public void setCity(String city) {
         this.city = city;
     }
 
@@ -42,8 +50,8 @@ public class City implements Serializable{
         return last_update;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinTable(name = "country",
-            joinColumns = {@JoinColumn(name = "country_id")})
-    private Country country = new Country();
+    @ManyToOne
+    @JoinTable(name="country", joinColumns = @JoinColumn(name = "id_country"),
+            inverseJoinColumns = @JoinColumn(name="id_country"))
+    private Country country_ = new Country();
 }

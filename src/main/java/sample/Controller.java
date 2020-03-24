@@ -2,6 +2,7 @@ package sample;
 
 import Util.HibernateUtil;
 import org.hibernate.Session;
+import tables.City;
 import tables.Country;
 
 import javax.persistence.NoResultException;
@@ -16,13 +17,13 @@ public class Controller {
 
         session.beginTransaction();
 
-        String query = "Select c from Country  c WHERE c.id  IS NOT NULL";
-        TypedQuery<Country> tq = session.createQuery(query, Country.class);
-        List<Country> kons;
+        String query = "Select c from City c Join c.country_list t Where t.country_id = 2";
+        TypedQuery<City> tq = session.createQuery(query, City.class);
+        List<City> kons;
         try {
             // Get matching customer object and output
             kons = tq.getResultList();
-            kons.forEach(perss ->System.out.println(perss.getCountry()));
+            kons.forEach(perss ->System.out.println(perss.getCity()));
         } catch (
                 NoResultException ex) {
             ex.printStackTrace();
