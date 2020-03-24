@@ -26,7 +26,7 @@ public class Customer implements Serializable {
     private String last_update;
 
 
-    //TODO change XXX to the onetoone jointable from Address class.
+    //TODO change XXX to the onetoone jointable from Address class.asdasd
     @OneToOne(mappedBy= "XXX")
     private Address address;
 
