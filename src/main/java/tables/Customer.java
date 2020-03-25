@@ -26,13 +26,13 @@ public class Customer implements Serializable {
     private String last_update;
 
 
-    //TODO change XXX to the onetoone jointable from Address class.
-    @OneToOne(mappedBy= "XXX")
-    private Address address;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
+    private Address address_OBJ;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "store_id")
-    private Store store;
+    private Store store_OBJ;
 
     public int getId() {
         return id;
@@ -90,19 +90,34 @@ public class Customer implements Serializable {
         this.last_update = last_update;
     }
 
-    public Address getAddress() {
-        return address;
+    public Address getAddress_OBJ() {
+        return address_OBJ;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddress_OBJ(Address address_OBJ) {
+        this.address_OBJ = address_OBJ;
     }
 
-    public Store getStore() {
-        return store;
+    public Store getStore_OBJ() {
+        return store_OBJ;
     }
 
-    public void setStore(Store store) {
-        this.store = store;
+    public void setStore_OBJ(Store store_OBJ) {
+        this.store_OBJ = store_OBJ;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", email='" + email + '\'' +
+                ", active=" + active +
+                ", create_date='" + create_date + '\'' +
+                ", last_update='" + last_update + '\'' +
+                ", address_OBJ=" + address_OBJ.getAddress() +
+                ", store_OBJ=" + store_OBJ.getId() +
+                '}';
     }
 }
