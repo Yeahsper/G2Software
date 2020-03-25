@@ -23,7 +23,7 @@ public class Controller {
         try {
             // Get matching customer object and output
             kons = tq.getResultList();
-            kons.forEach(perss ->System.out.println(perss.getCity()));
+            kons.forEach(perss ->System.out.println(perss.getCity()+perss.getCountry_OBJ().getCountry_id()));
         } catch (
                 NoResultException ex) {
             ex.printStackTrace();
