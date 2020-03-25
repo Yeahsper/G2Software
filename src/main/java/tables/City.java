@@ -50,8 +50,8 @@ public class City implements Serializable{
         return last_update;
     }
 
-    @ManyToOne
-    @JoinTable(name="country", joinColumns = @JoinColumn(name = "id_country"),
-            inverseJoinColumns = @JoinColumn(name="id_country"))
-    private Country country_ = new Country();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinTable(name="country",
+            joinColumns = {@JoinColumn(name = "country_id")})
+    private Country country_list;
 }

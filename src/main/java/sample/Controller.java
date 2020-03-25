@@ -17,7 +17,7 @@ public class Controller {
 
         session.beginTransaction();
 
-        String query = "Select c from City c Join c.country_list t Where t.country_id = 2";
+        String query = "Select c from City c Where c IS not null";
         TypedQuery<City> tq = session.createQuery(query, City.class);
         List<City> kons;
         try {
