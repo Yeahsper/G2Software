@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 5.3//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-5.3.dtd">
+<hibernate-configuration>
+
+    <session-factory>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="hibernate.connection.url">x</property>
+        <property name="hibernate.connection.username">x</property>
+        <property name="hibernate.connection.password">x</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">false</property>
+        <!--	<mapping resource="concert.hbm.xml"/>
+         <mapping resource="person.hbm.xml"/> -->
+        <mapping class="tables.Address"/>
+<!--        <mapping class="tables.Person"/>-->
+<!--        <mapping class="tables.Concert_Person"/>-->
+<!--        <mapping class="tables.DTOConcert_Person"/>-->
+
+    </session-factory>
+
+</hibernate-configuration>
