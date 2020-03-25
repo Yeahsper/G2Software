@@ -16,9 +16,9 @@
         <!--	<mapping resource="concert.hbm.xml"/>
          <mapping resource="person.hbm.xml"/> -->
         <mapping class="tables.Address"/>
-        <!--        <mapping class="tables.Person"/>-->
-        <!--        <mapping class="tables.Concert_Person"/>-->
-        <!--        <mapping class="tables.DTOConcert_Person"/>-->
+<!--        <mapping class="tables.Person"/>-->
+<!--        <mapping class="tables.Concert_Person"/>-->
+<!--        <mapping class="tables.DTOConcert_Person"/>-->
 
     </session-factory>
 
