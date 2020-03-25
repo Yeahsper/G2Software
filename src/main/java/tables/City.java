@@ -2,8 +2,6 @@ package tables;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name= "city")
@@ -16,27 +14,24 @@ public class City implements Serializable{
     private int city_id;
     @Column(name="city",nullable = false )
     private String city;
-    @Column(name="country_id",nullable = false )
-    private int country_id;
     @Column(name="last_update",nullable = false )
     private String last_update;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="country_id")
-    private Country country_;
+    private Country country_OBJ;
+
+    public void setCountry_OBJ(Country country_) {
+        this.country_OBJ = country_;
+    }
+    public Country getCountry_OBJ() {
+        return country_OBJ;
+    }
 
     public int getID()
     {return city_id;}
     public void setID(int a){
         city_id=a;
-    }
-
-    public int getCountry_id() {
-        return country_id;
-    }
-
-    public void setCountry_id(int country_id) {
-        this.country_id = country_id;
     }
 
     public void setCity(String city) {
