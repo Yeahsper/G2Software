@@ -13,12 +13,17 @@ public class Country implements Serializable{
     private static final long serialVersionUID=1L;
 
         @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name="country_id",unique =true )
         private int country_id;
         @Column(name="country",nullable = false )
         private String country_name;
         @Column(name="last_update",nullable = false )
         private String last_update;
+
+    @OneToMany(mappedBy ="country_")
+    private List<City> city_list;
+
 
         public int getCountry_id()
         {return country_id;}
@@ -44,6 +49,4 @@ public class Country implements Serializable{
 
 
 
-    @OneToMany(mappedBy ="country_list")
-    private List<City> city_list =new ArrayList<>();
 }

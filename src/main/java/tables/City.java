@@ -11,6 +11,7 @@ public class City implements Serializable{
     private static final long serialVersionUID=1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="city_id",unique =true )
     private int city_id;
     @Column(name="city",nullable = false )
@@ -19,6 +20,10 @@ public class City implements Serializable{
     private int country_id;
     @Column(name="last_update",nullable = false )
     private String last_update;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="country_id")
+    private Country country_;
 
     public int getID()
     {return city_id;}
@@ -50,8 +55,5 @@ public class City implements Serializable{
         return last_update;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(name="country",
-            joinColumns = {@JoinColumn(name = "country_id")})
-    private Country country_list;
+
 }
