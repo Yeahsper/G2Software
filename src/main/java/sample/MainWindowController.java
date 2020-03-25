@@ -94,7 +94,7 @@ public class MainWindowController implements Initializable {
         }
     }
 
-    public void showTable() {
+    public void selectTable() {
         tableView1.getColumns().clear();
         //tableView.setEditable(true);
 
