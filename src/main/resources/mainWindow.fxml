@@ -12,58 +12,59 @@
    <children>
       <TabPane layoutX="-2.0" prefHeight="600.0" prefWidth="1207.0" style="-fx-background-color: cadetblue;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="tablesTab" text="Example 1 View tables">
+          <Tab fx:id="tablesTab" text="View tables">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="555.0" prefWidth="1016.0" style="-fx-background-color: cadetblue;">
                      <children>
-                        <ChoiceBox fx:id="choiceBox" layoutX="14.0" layoutY="69.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="112.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="69.0" />
-                        <TableView fx:id="tableView" layoutX="132.0" layoutY="68.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="1061.0" AnchorPane.leftAnchor="132.0" AnchorPane.topAnchor="68.0" />
-                        <Button fx:id="goBtn" layoutX="14.0" layoutY="106.0" mnemonicParsing="false" onAction="#go" prefHeight="29.0" prefWidth="47.0" text="Go" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="106.0" />
+                        <ChoiceBox fx:id="choiceBox1" layoutX="3.0" layoutY="68.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="68.0" />
+                        <TableView fx:id="tableView" layoutX="161.0" layoutY="68.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="1032.0" AnchorPane.leftAnchor="161.0" AnchorPane.topAnchor="68.0" />
+                        <Button fx:id="goBtn" layoutX="3.0" layoutY="98.0" mnemonicParsing="false" onAction="#go" prefHeight="29.0" prefWidth="47.0" text="Go" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="98.0" />
                         <Label layoutX="14.0" layoutY="41.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="83.0" text="Tables" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="41.0" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Example 2 insert, update, delete">
+            <Tab text="Insert, update and delete">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: cadetblue;">
                      <children>
-                        <TableView fx:id="tableview2" layoutX="173.0" layoutY="34.0" prefHeight="438.0" prefWidth="606.0" />
-                        <ChoiceBox fx:id="choiceBox2" layoutX="14.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="150.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="34.0" />
-                        <TextField layoutX="935.0" layoutY="71.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <TextField layoutX="935.0" layoutY="101.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <TextField layoutX="935.0" layoutY="131.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <TextField layoutX="935.0" layoutY="160.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <TextField layoutX="935.0" layoutY="190.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <TextField layoutX="935.0" layoutY="220.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <TextField layoutX="935.0" layoutY="250.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <TextField layoutX="935.0" layoutY="279.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <TextField layoutX="935.0" layoutY="307.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <TextField layoutX="935.0" layoutY="335.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <TextField layoutX="935.0" layoutY="364.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <TextField layoutX="935.0" layoutY="392.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <ChoiceBox fx:id="choiceBox4" layoutX="935.0" layoutY="32.0" prefWidth="150.0" />
-                        <Button layoutX="935.0" layoutY="449.0" mnemonicParsing="false" text="Insert" />
-                        <TextField layoutX="935.0" layoutY="421.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <Button layoutX="173.0" layoutY="488.0" mnemonicParsing="false" text="Delete" />
-                        <Button layoutX="257.0" layoutY="488.0" mnemonicParsing="false" text="Update" />
+                        <TableView fx:id="tableview2" layoutX="173.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="606.0" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="34.0" />
+                        <ChoiceBox fx:id="choiceBox2" layoutX="14.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="34.0" />
+                        <TextField fx:id="textField1" layoutX="935.0" layoutY="123.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="123.0" />
+                        <TextField fx:id="textField2" layoutX="935.0" layoutY="150.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="150.0" />
+                        <TextField fx:id="textField3" layoutX="935.0" layoutY="177.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="177.0" />
+                        <TextField fx:id="textField4" layoutX="935.0" layoutY="204.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="204.0" />
+                        <TextField fx:id="textField5" layoutX="935.0" layoutY="231.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="231.0" />
+                        <TextField fx:id="textField6" layoutX="935.0" layoutY="258.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="258.0" />
+                        <TextField fx:id="textField7" layoutX="935.0" layoutY="285.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="285.0" />
+                        <TextField fx:id="textField8" layoutX="935.0" layoutY="312.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="312.0" />
+                        <TextField fx:id="textField9" layoutX="935.0" layoutY="339.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="339.0" />
+                        <TextField fx:id="textField10" layoutX="935.0" layoutY="366.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="935.0" />
+                        <TextField fx:id="textField11" layoutX="935.0" layoutY="393.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
+                        <TextField fx:id="textField12" layoutX="935.0" layoutY="420.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
+                        <ChoiceBox fx:id="insertChoiceBox" layoutX="935.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="34.0" />
+                        <Button fx:id="insertBtn" layoutX="935.0" layoutY="482.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#insert" text="Insert" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="482.0" />
+                        <TextField fx:id="textField13" layoutX="935.0" layoutY="447.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
+                        <Button fx:id="deleteBtn" layoutX="173.0" layoutY="488.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#delete" text="Delete" AnchorPane.leftAnchor="173.0" AnchorPane.topAnchor="488.0" />
+                        <Button fx:id="updateBtn" layoutX="257.0" layoutY="488.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#update" text="Update" AnchorPane.leftAnchor="257.0" AnchorPane.topAnchor="488.0" />
+                        <Button fx:id="testBtn" layoutX="935.0" layoutY="78.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#adjustVisibleTextFields" prefHeight="35.0" prefWidth="84.0" text="Choose" />
                      </children>
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Example3 to add, remove and view joint tables">
+            <Tab text="Add, remove and view joint tables">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: cadetblue;">
                      <children>
-                        <ChoiceBox fx:id="choiceBox5" layoutX="21.0" layoutY="34.0" prefWidth="150.0" />
-                        <ChoiceBox fx:id="choiceBox6" layoutX="21.0" layoutY="247.0" prefWidth="150.0" />
-                        <TableView layoutX="21.0" layoutY="80.0" prefHeight="157.0" prefWidth="571.0" />
-                        <TableView layoutX="21.0" layoutY="286.0" prefHeight="148.0" prefWidth="576.0" />
-                        <ListView layoutX="765.0" layoutY="33.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="421.0" />
-                        <ChoiceBox fx:id="choiceBox7" layoutX="901.0" layoutY="484.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="31.0" prefWidth="150.0" />
-                        <Button layoutX="229.0" layoutY="439.0" mnemonicParsing="false" text="Add to" />
-                        <Label layoutX="954.0" layoutY="450.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="50.0" text="Show" AnchorPane.leftAnchor="954.0" AnchorPane.topAnchor="450.0" />
-                        <Button layoutX="327.0" layoutY="439.0" mnemonicParsing="false" text="Remove" />
+                        <ChoiceBox fx:id="choiceBox4" layoutX="21.0" layoutY="39.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="39.0" />
+                        <ChoiceBox fx:id="choiceBox5" layoutX="21.0" layoutY="247.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="247.0" />
+                        <TableView layoutX="21.0" layoutY="80.0" prefHeight="157.0" prefWidth="571.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="80.0" />
+                        <TableView layoutX="21.0" layoutY="286.0" prefHeight="148.0" prefWidth="576.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="286.0" />
+                        <ListView layoutX="766.0" layoutY="78.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="421.0" AnchorPane.leftAnchor="766.0" AnchorPane.topAnchor="78.0" />
+                        <ChoiceBox fx:id="choiceBox6" layoutX="766.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="766.0" AnchorPane.topAnchor="34.0" />
+                        <Button fx:id="addToJointTableBtn" layoutX="229.0" layoutY="439.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addToJointTable" prefHeight="40.0" prefWidth="66.0" text="Add" AnchorPane.leftAnchor="229.0" AnchorPane.topAnchor="439.0" />
+                        <Button fx:id="removeBtn" layoutX="327.0" layoutY="439.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="89.0" text="Remove" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="439.0" />
+                        <Button fx:id="showBtn" layoutX="929.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showJointTables" prefHeight="40.0" prefWidth="69.0" text="Show" AnchorPane.leftAnchor="929.0" AnchorPane.topAnchor="34.0" />
                      </children>
                   </AnchorPane>
               </content>
