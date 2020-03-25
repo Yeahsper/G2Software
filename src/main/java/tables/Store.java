@@ -20,7 +20,7 @@ public class Store implements Serializable {
 
     //TODO change XXX to the onetoone jointable from Staff class.
     @OneToOne(mappedBy="XXX")
-    private Staff manager;
+    //private Staff manager;
 
     public int getId() {
         return id;
@@ -37,7 +37,7 @@ public class Store implements Serializable {
     public void setAddress(Address address) {
         this.address = address;
     }
-
+/*
     public Staff getManager() {
         return manager;
     }
@@ -45,4 +45,6 @@ public class Store implements Serializable {
     public void setManager(Staff manager) {
         this.manager = manager;
     }
+
+ */
 }

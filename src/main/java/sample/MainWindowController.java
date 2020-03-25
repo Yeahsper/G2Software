@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,7 +25,10 @@ public class MainWindowController implements Initializable {
     private ChoiceBox<String> choiceBox1, choiceBox2, insertChoiceBox, choiceBox4, choiceBox5, choiceBox6;
 
     @FXML
-    private TableView<?> tableView, tableView2;
+    private TableView<?> tableView1, tableView2, tableView3, tableView4;
+
+    @FXML
+    private ListView listView;
 
     private ObservableList<String> databaseTablesList = FXCollections.observableArrayList("Actor",
             "Address", "Category", "City", "Country", "Customer", "Film",
@@ -35,40 +39,6 @@ public class MainWindowController implements Initializable {
     @FXML
     void insert(ActionEvent event) {
 
-    }
-
-    @FXML
-    void adjustVisibleTextFields(ActionEvent event) {
-        makeTextFieldsInvisible();
-
-        switch (insertChoiceBox.getSelectionModel().getSelectedItem().toUpperCase()) {
-            case "ACTOR":
-                makeTextFieldsVisible(4);break;
-            case "ADDRESS":
-                makeTextFieldsVisible(9);break;
-            case "CATEGORY":
-                makeTextFieldsVisible(3);break;
-            case "CITY":
-                makeTextFieldsVisible(4);break;
-            case "COUNTRY":
-                makeTextFieldsVisible(3);break;
-            case "CUSTOMER":
-                makeTextFieldsVisible(9);break;
-            case "FILM":
-                makeTextFieldsVisible(13);break;
-            case "INVENTORY":
-                makeTextFieldsVisible(4);break;
-            case "LANGUAGE":
-                makeTextFieldsVisible(3);break;
-            case "PAYMENT":
-                makeTextFieldsVisible(7);break;
-            case "RENTAL":
-                makeTextFieldsVisible(7);break;
-            case "STAFF":
-                makeTextFieldsVisible(11);break;
-            case "STORE":
-                makeTextFieldsVisible(4);break;
-        }
     }
 
     public void makeTextFieldsVisible(int nr) {
@@ -103,25 +73,29 @@ public class MainWindowController implements Initializable {
 
     }
 
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        choiceBox1.setItems(FXCollections.observableArrayList(databaseTablesList));
-        choiceBox2.setItems(FXCollections.observableArrayList(databaseTablesList));
-        insertChoiceBox.setItems(FXCollections.observableArrayList(databaseTablesList));
-        choiceBox4.setItems(FXCollections.observableArrayList(databaseTablesList));
-        choiceBox5.setItems(FXCollections.observableArrayList(databaseTablesList));
-        choiceBox6.setItems(FXCollections.observableArrayList(
-                "Actors in movies", "Film & categories", "Film & text"));
-
-        textFieldsArray = new TextField[]{textField1, textField2, textField3, textField4, textField5, textField6,
-                textField7, textField8, textField9, textField10, textField11, textField12,textField13};
-
+    @FXML
+    void adjustVisibleTextFields(ActionEvent event) {
         makeTextFieldsInvisible();
+
+        switch (insertChoiceBox.getSelectionModel().getSelectedItem().toUpperCase()) {
+            case "ACTOR": makeTextFieldsVisible(4); break;
+            case "ADDRESS": makeTextFieldsVisible(9); break;
+            case "CATEGORY": makeTextFieldsVisible(3); break;
+            case "CITY": makeTextFieldsVisible(4); break;
+            case "COUNTRY": makeTextFieldsVisible(3); break;
+            case "CUSTOMER": makeTextFieldsVisible(9); break;
+            case "FILM": makeTextFieldsVisible(13); break;
+            case "INVENTORY": makeTextFieldsVisible(4); break;
+            case "LANGUAGE": makeTextFieldsVisible(3); break;
+            case "PAYMENT": makeTextFieldsVisible(7); break;
+            case "RENTAL": makeTextFieldsVisible(7); break;
+            case "STAFF": makeTextFieldsVisible(11); break;
+            case "STORE": makeTextFieldsVisible(4); break;
+        }
     }
 
-    public void go() {
-        tableView.getColumns().clear();
+    public void showTable() {
+        tableView1.getColumns().clear();
         //tableView.setEditable(true);
 
         if (choiceBox1.getSelectionModel().getSelectedItem().equals("Actor")) {
@@ -136,7 +110,7 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
 
-            tableView.getColumns().addAll(idCol, firstNameCol, lastNameCol, lastUpdateCol);
+            tableView1.getColumns().addAll(idCol, firstNameCol, lastNameCol, lastUpdateCol);
 
         } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Address")) {
             TableColumn idCol = new TableColumn("Address id");
@@ -159,7 +133,7 @@ public class MainWindowController implements Initializable {
             locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView.getColumns().addAll(idCol, addressCol, secondAddressCol, districtCol, cityCol,
+            tableView1.getColumns().addAll(idCol, addressCol, secondAddressCol, districtCol, cityCol,
                     postcodeCol, phoneCol, locationCol, lastUpdateCol);
 
         } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Category")) {
@@ -171,7 +145,7 @@ public class MainWindowController implements Initializable {
             nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView.getColumns().addAll(idCol, nameCol, lastUpdateCol);
+            tableView1.getColumns().addAll(idCol, nameCol, lastUpdateCol);
 
         } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("City")) {
             TableColumn idCol = new TableColumn("City id");
@@ -184,7 +158,7 @@ public class MainWindowController implements Initializable {
             countryIdCol.setCellValueFactory(new PropertyValueFactory<>("country_id"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView.getColumns().addAll(idCol, nameCol, countryIdCol, lastUpdateCol);
+            tableView1.getColumns().addAll(idCol, nameCol, countryIdCol, lastUpdateCol);
 
         } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Country")) {
             TableColumn idCol = new TableColumn("Country id");
@@ -196,7 +170,7 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
 
-            tableView.getColumns().addAll(idCol, nameCol, lastUpdateCol);
+            tableView1.getColumns().addAll(idCol, nameCol, lastUpdateCol);
 
         } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Customer")) {
             TableColumn customerIdCol = new TableColumn("Customer id");
@@ -220,7 +194,7 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
 
-            tableView.getColumns().addAll(customerIdCol, storeIdCol, firstNameCol, lastNameCol, emailCol,
+            tableView1.getColumns().addAll(customerIdCol, storeIdCol, firstNameCol, lastNameCol, emailCol,
                     activeCol, createdCol, lastUpdateCol);
 
         } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Film")) {
@@ -253,7 +227,7 @@ public class MainWindowController implements Initializable {
             specialFeaturesCol.setCellValueFactory(new PropertyValueFactory<>("special_features"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView.getColumns().addAll(filmIdCol, titleCol, descriptionCol, releasedCol, languageIdCol, originalLanguageCol,
+            tableView1.getColumns().addAll(filmIdCol, titleCol, descriptionCol, releasedCol, languageIdCol, originalLanguageCol,
                     rentalDurationCol, rentalRateCol, lengthCol, replacementCostCol, ratingCol, specialFeaturesCol, lastUpdateCol);
 
         } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Inventory")) {
@@ -267,7 +241,7 @@ public class MainWindowController implements Initializable {
             storeIdCol.setCellValueFactory(new PropertyValueFactory<>("store_id"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView.getColumns().addAll(inventoryIdCol, filmIdCol, storeIdCol, lastUpdateCol);
+            tableView1.getColumns().addAll(inventoryIdCol, filmIdCol, storeIdCol, lastUpdateCol);
 
         } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Language")) {
             TableColumn idCol = new TableColumn("Language id");
@@ -278,7 +252,7 @@ public class MainWindowController implements Initializable {
             nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView.getColumns().addAll(idCol, nameCol, lastUpdateCol);
+            tableView1.getColumns().addAll(idCol, nameCol, lastUpdateCol);
 
         } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Payment")) {
             TableColumn paymentIdCol = new TableColumn("Payment id");
@@ -297,7 +271,7 @@ public class MainWindowController implements Initializable {
             paymentDateCol.setCellValueFactory(new PropertyValueFactory<>("payment_date"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView.getColumns().addAll(paymentIdCol, customerIdCol, staffIdCol, rentalIdCol,
+            tableView1.getColumns().addAll(paymentIdCol, customerIdCol, staffIdCol, rentalIdCol,
                     amountCol, paymentDateCol, lastUpdateCol);
 
         } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Rental")) {
@@ -317,7 +291,7 @@ public class MainWindowController implements Initializable {
             staffIdCol.setCellValueFactory(new PropertyValueFactory<>("staff_id"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView.getColumns().addAll(rentalIdCol, rentalDateCol, inventoryIdCol, customerIdCol,
+            tableView1.getColumns().addAll(rentalIdCol, rentalDateCol, inventoryIdCol, customerIdCol,
                     returnDateCol, staffIdCol, lastUpdateCol);
 
         } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Staff")) {
@@ -345,7 +319,7 @@ public class MainWindowController implements Initializable {
             passwordCol.setCellValueFactory(new PropertyValueFactory<>("password"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView.getColumns().addAll(idCol, firstNameCol, lastNameCol, addressIdCol, pictureCol, emailCol,
+            tableView1.getColumns().addAll(idCol, firstNameCol, lastNameCol, addressIdCol, pictureCol, emailCol,
                     storeIDCol, activeCol, usernameCol, passwordCol, lastNameCol);
 
         } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Store")) {
@@ -359,11 +333,27 @@ public class MainWindowController implements Initializable {
             addressIdCol.setCellValueFactory(new PropertyValueFactory<>("address_id"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView.getColumns().addAll(storeIdCol, managerStaffIdCol, addressIdCol, lastUpdateCol);
+            tableView1.getColumns().addAll(storeIdCol, managerStaffIdCol, addressIdCol, lastUpdateCol);
 
         } else {
             System.out.println("Nothing");
-            tableView.getColumns().clear();
+            tableView1.getColumns().clear();
         }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        choiceBox1.setItems(FXCollections.observableArrayList(databaseTablesList));
+        choiceBox2.setItems(FXCollections.observableArrayList(databaseTablesList));
+        insertChoiceBox.setItems(FXCollections.observableArrayList(databaseTablesList));
+        choiceBox4.setItems(FXCollections.observableArrayList(databaseTablesList));
+        choiceBox5.setItems(FXCollections.observableArrayList(databaseTablesList));
+        choiceBox6.setItems(FXCollections.observableArrayList(
+                "Actors in movies", "Film & categories", "Film & text"));
+
+        textFieldsArray = new TextField[]{textField1, textField2, textField3, textField4, textField5, textField6,
+                textField7, textField8, textField9, textField10, textField11, textField12, textField13};
+
+        makeTextFieldsInvisible();
     }
 }

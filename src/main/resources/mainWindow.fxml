@@ -17,8 +17,8 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="555.0" prefWidth="1016.0" style="-fx-background-color: cadetblue;">
                      <children>
                         <ChoiceBox fx:id="choiceBox1" layoutX="3.0" layoutY="68.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="68.0" />
-                        <TableView fx:id="tableView" layoutX="161.0" layoutY="68.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="1032.0" AnchorPane.leftAnchor="161.0" AnchorPane.topAnchor="68.0" />
-                        <Button fx:id="goBtn" layoutX="3.0" layoutY="98.0" mnemonicParsing="false" onAction="#go" prefHeight="29.0" prefWidth="47.0" text="Go" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="98.0" />
+                        <TableView fx:id="tableView1" layoutX="161.0" layoutY="68.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="1032.0" AnchorPane.leftAnchor="161.0" AnchorPane.topAnchor="68.0" />
+                        <Button fx:id="goBtn" layoutX="3.0" layoutY="98.0" mnemonicParsing="false" onAction="#showTable" prefHeight="39.0" prefWidth="122.0" text="Show table" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="98.0" />
                         <Label layoutX="14.0" layoutY="41.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="83.0" text="Tables" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="41.0" />
                      </children>
                   </AnchorPane>
@@ -58,9 +58,9 @@
                      <children>
                         <ChoiceBox fx:id="choiceBox4" layoutX="21.0" layoutY="39.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="39.0" />
                         <ChoiceBox fx:id="choiceBox5" layoutX="21.0" layoutY="247.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="247.0" />
-                        <TableView layoutX="21.0" layoutY="80.0" prefHeight="157.0" prefWidth="571.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="80.0" />
-                        <TableView layoutX="21.0" layoutY="286.0" prefHeight="148.0" prefWidth="576.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="286.0" />
-                        <ListView layoutX="766.0" layoutY="78.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="421.0" AnchorPane.leftAnchor="766.0" AnchorPane.topAnchor="78.0" />
+                        <TableView fx:id="tableView3" layoutX="21.0" layoutY="80.0" prefHeight="157.0" prefWidth="571.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="80.0" />
+                        <TableView fx:id="tableView4" layoutX="21.0" layoutY="286.0" prefHeight="148.0" prefWidth="576.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="286.0" />
+                        <ListView fx:id="listView" layoutX="766.0" layoutY="78.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="421.0" AnchorPane.leftAnchor="766.0" AnchorPane.topAnchor="78.0" />
                         <ChoiceBox fx:id="choiceBox6" layoutX="766.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" AnchorPane.leftAnchor="766.0" AnchorPane.topAnchor="34.0" />
                         <Button fx:id="addToJointTableBtn" layoutX="229.0" layoutY="439.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addToJointTable" prefHeight="40.0" prefWidth="66.0" text="Add" AnchorPane.leftAnchor="229.0" AnchorPane.topAnchor="439.0" />
                         <Button fx:id="removeBtn" layoutX="327.0" layoutY="439.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="89.0" text="Remove" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="439.0" />

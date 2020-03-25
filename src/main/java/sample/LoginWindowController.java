@@ -2,8 +2,12 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
@@ -37,6 +41,16 @@ public class LoginWindowController {
             if (session.isConnected()) {
                 // MainGUI mainGUI = new MainGUI();
                 // mainGUI.display();
+
+                Parent root;
+                root = FXMLLoader.load(getClass().getClassLoader().getResource("mainWindow.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("");
+                stage.setResizable(false);
+                stage.setScene(new Scene(root, 1200, 600));
+
+                stage.setAlwaysOnTop(true);
+                stage.show();
             }
         } catch (Exception e) {
             e.printStackTrace();
