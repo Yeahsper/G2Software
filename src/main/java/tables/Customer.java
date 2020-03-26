@@ -25,14 +25,17 @@ public class Customer implements Serializable {
     @Column(name="last_update")
     private String last_update;
 
-
-    //TODO change XXX to the onetoone jointable from Address class.
-    @OneToOne(mappedBy= "XXX")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "store_id")
     private Store store;
+
+    public Address getAddress() { return address; }
+
+    public void setAddress(Address address) { this.address = address; }
 
     public int getId() {
         return id;
@@ -88,14 +91,6 @@ public class Customer implements Serializable {
 
     public void setLast_update(String last_update) {
         this.last_update = last_update;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 
     public Store getStore() {

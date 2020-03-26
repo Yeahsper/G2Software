@@ -1,6 +1,7 @@
 package tables;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import javax.persistence.*;
 
 @Entity
@@ -16,37 +17,39 @@ public class Address implements Serializable {
     private String address2;
     @Column(name = "district", nullable = false)
     private String district;
-    @Column(name = "city_id", unique = true, nullable = false)
-    private int city_id;
     @Column(name = "postal_code", nullable = false)
     private String postal_code;
     @Column(name = "phone", nullable = false)
     private String phone;
     @Column(name = "location", nullable = false)
-    private String location;
+    private Blob location;
     @Column(name = "last_update", nullable = false)
     private String last_update;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinTable(name = "city",
-//            joinColumns = {@JoinColumn(name = "city_id")})
-//
-//    private City city = new City();
+    // Connects city and address
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "city_id")
+    private City city_obj = new City();
 
+    // For testing
     @Override
     public String toString() {
         return "Address{" +
-                "address_id=" + address_id +
+//                "CITY=" + city.getCity() +
+                ", address_id=" + address_id +
                 ", address='" + address + '\'' +
                 ", address2='" + address2 + '\'' +
                 ", district='" + district + '\'' +
-                ", city_id=" + city_id +
                 ", postal_code='" + postal_code + '\'' +
                 ", phone='" + phone + '\'' +
                 ", location='" + location + '\'' +
                 ", last_update='" + last_update + '\'' +
                 '}';
     }
+
+    public City getCity() { return city_obj; }
+
+    public void setCity(City city) { this.city_obj = city; }
 
     public int getAddress_id() {
         return address_id;
@@ -80,14 +83,6 @@ public class Address implements Serializable {
         this.district = district;
     }
 
-    public int getCity_id() {
-        return city_id;
-    }
-
-    public void setCity_id(int city_id) {
-        this.city_id = city_id;
-    }
-
     public String getPostal_code() {
         return postal_code;
     }
@@ -104,11 +99,11 @@ public class Address implements Serializable {
         this.phone = phone;
     }
 
-    public String getLocation() {
+    public Blob getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Blob location) {
         this.location = location;
     }
 
