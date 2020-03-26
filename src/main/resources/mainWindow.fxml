@@ -19,7 +19,7 @@
                      <children>
                         <ChoiceBox fx:id="choiceBox1" layoutX="12.0" layoutY="59.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="150.0" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="59.0" />
                         <TableView fx:id="tableView1" layoutX="11.0" layoutY="95.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="1183.0" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="95.0" />
-                        <Button fx:id="goBtn" layoutX="165.0" layoutY="59.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectTable" prefHeight="35.0" prefWidth="76.0" text="Select" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="59.0" />
+                        <Button fx:id="selectBtnOne" layoutX="165.0" layoutY="59.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openToFirstTableView" prefHeight="35.0" prefWidth="76.0" text="Select" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="59.0" />
                         <Label layoutX="14.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="289.0" text="Select a table to view its content" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
                            <font>
                               <Font name="System Bold" size="18.0" />
@@ -33,7 +33,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: cadetblue;">
                      <children>
-                        <TableView fx:id="tableview2" layoutX="14.0" layoutY="88.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="765.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="88.0" />
+                        <TableView fx:id="tableView2" layoutX="14.0" layoutY="88.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="765.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="88.0" />
                         <ChoiceBox fx:id="choiceBox2" layoutX="14.0" layoutY="52.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="150.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="52.0" />
                         <TextField fx:id="textField1" layoutX="935.0" layoutY="94.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="94.0" />
                         <TextField fx:id="textField2" layoutX="935.0" layoutY="121.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" AnchorPane.leftAnchor="935.0" AnchorPane.topAnchor="121.0" />
@@ -63,7 +63,7 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Button layoutX="167.0" layoutY="52.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="35.0" text="Select" />
+                        <Button fx:id="selectBtnTwo" layoutX="167.0" layoutY="52.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#openToSecondTableView" prefHeight="35.0" text="Select" AnchorPane.leftAnchor="167.0" AnchorPane.topAnchor="52.0" />
                      </children>
                   </AnchorPane>
               </content>
@@ -72,15 +72,17 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: cadetblue;">
                      <children>
-                        <ChoiceBox fx:id="choiceBox4" layoutX="21.0" layoutY="39.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="150.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="49.0" />
-                        <ChoiceBox fx:id="choiceBox5" layoutX="21.0" layoutY="255.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="150.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="255.0" />
+                        <ChoiceBox fx:id="choiceBox3" layoutX="21.0" layoutY="39.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="150.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="49.0" />
+                        <ChoiceBox fx:id="choiceBox4" layoutX="21.0" layoutY="255.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="150.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="255.0" />
                         <TableView fx:id="tableView3" layoutX="21.0" layoutY="83.0" prefHeight="157.0" prefWidth="571.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="83.0" />
                         <TableView fx:id="tableView4" layoutX="21.0" layoutY="289.0" prefHeight="148.0" prefWidth="576.0" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="289.0" />
                         <ListView fx:id="listView" layoutX="766.0" layoutY="83.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="421.0" AnchorPane.leftAnchor="766.0" AnchorPane.topAnchor="83.0" />
-                        <ChoiceBox fx:id="choiceBox6" layoutX="766.0" layoutY="45.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="150.0" AnchorPane.leftAnchor="766.0" AnchorPane.topAnchor="49.0" />
+                        <ChoiceBox fx:id="choiceBox5" layoutX="766.0" layoutY="45.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="150.0" AnchorPane.leftAnchor="766.0" AnchorPane.topAnchor="49.0" />
                         <Button fx:id="addToJointTableBtn" layoutX="229.0" layoutY="439.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addToJointTable" prefHeight="35.0" prefWidth="66.0" text="Add" AnchorPane.leftAnchor="229.0" AnchorPane.topAnchor="439.0" />
                         <Button fx:id="removeBtn" layoutX="327.0" layoutY="439.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="89.0" text="Remove" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="439.0" />
                         <Button fx:id="showBtn" layoutX="918.0" layoutY="45.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showJointTables" prefHeight="35.0" prefWidth="86.0" text="Select" AnchorPane.leftAnchor="918.0" AnchorPane.topAnchor="49.0" />
+                        <Button fx:id="selectBtnThree" layoutX="171.0" layoutY="49.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openToThirdTableView" prefHeight="35.0" prefWidth="78.0" text="Select" AnchorPane.leftAnchor="171.0" AnchorPane.topAnchor="49.0" />
+                        <Button fx:id="selectBtnFour" layoutX="171.0" layoutY="255.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openToFourthTableView" prefHeight="35.0" prefWidth="78.0" text="Select" AnchorPane.leftAnchor="171.0" AnchorPane.topAnchor="255.0" />
                      </children>
                   </AnchorPane>
               </content>

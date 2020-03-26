@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import tables.Actor;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +15,9 @@ import java.util.ResourceBundle;
 public class MainWindowController implements Initializable {
 
     @FXML
-    private Button updateBtn, goBtn, showBtn, deleteBtn, insertBtn, addToJointTableBtn, removeBtn;
+    private Button updateBtn, deleteBtn, insertBtn, addToJointTableBtn, removeBtn;
+    @FXML
+    private Button selectBtnOne,selectBtnTwo,selectBtnThree,selectBtnFour;
 
     @FXML
     private TextField textField1, textField2, textField3, textField4, textField5, textField6;
@@ -22,7 +25,7 @@ public class MainWindowController implements Initializable {
     private TextField textField7, textField8, textField9, textField10, textField11, textField12, textField13;
 
     @FXML
-    private ChoiceBox<String> choiceBox1, choiceBox2, insertChoiceBox, choiceBox4, choiceBox5, choiceBox6;
+    private ChoiceBox<String> choiceBox1, choiceBox2, insertChoiceBox, choiceBox3, choiceBox4, choiceBox5;
 
     @FXML
     private TableView<?> tableView1, tableView2, tableView3, tableView4;
@@ -74,31 +77,75 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
+    void openToFirstTableView(ActionEvent event) {
+        selectTable(choiceBox1.getSelectionModel().getSelectedItem(), 1);
+    }
+
+    @FXML
+    void openToSecondTableView(ActionEvent event) {
+        selectTable(choiceBox2.getSelectionModel().getSelectedItem(), 2);
+    }
+
+    @FXML
+    void openToThirdTableView(ActionEvent event) {
+        selectTable(choiceBox3.getSelectionModel().getSelectedItem(), 3);
+    }
+
+    @FXML
+    void openToFourthTableView(ActionEvent event) {
+        selectTable(choiceBox4.getSelectionModel().getSelectedItem(), 4);
+    }
+
+    @FXML
     void adjustVisibleTextFields(ActionEvent event) {
         makeTextFieldsInvisible();
 
         switch (insertChoiceBox.getSelectionModel().getSelectedItem().toUpperCase()) {
-            case "ACTOR": makeTextFieldsVisible(4); break;
-            case "ADDRESS": makeTextFieldsVisible(9); break;
-            case "CATEGORY": makeTextFieldsVisible(3); break;
-            case "CITY": makeTextFieldsVisible(4); break;
-            case "COUNTRY": makeTextFieldsVisible(3); break;
-            case "CUSTOMER": makeTextFieldsVisible(9); break;
-            case "FILM": makeTextFieldsVisible(13); break;
-            case "INVENTORY": makeTextFieldsVisible(4); break;
-            case "LANGUAGE": makeTextFieldsVisible(3); break;
-            case "PAYMENT": makeTextFieldsVisible(7); break;
-            case "RENTAL": makeTextFieldsVisible(7); break;
-            case "STAFF": makeTextFieldsVisible(11); break;
-            case "STORE": makeTextFieldsVisible(4); break;
+            case "ACTOR":
+                makeTextFieldsVisible(4);
+                break;
+            case "ADDRESS":
+                makeTextFieldsVisible(9);
+                break;
+            case "CATEGORY":
+                makeTextFieldsVisible(3);
+                break;
+            case "CITY":
+                makeTextFieldsVisible(4);
+                break;
+            case "COUNTRY":
+                makeTextFieldsVisible(3);
+                break;
+            case "CUSTOMER":
+                makeTextFieldsVisible(9);
+                break;
+            case "FILM":
+                makeTextFieldsVisible(13);
+                break;
+            case "INVENTORY":
+                makeTextFieldsVisible(4);
+                break;
+            case "LANGUAGE":
+                makeTextFieldsVisible(3);
+                break;
+            case "PAYMENT":
+                makeTextFieldsVisible(7);
+                break;
+            case "RENTAL":
+                makeTextFieldsVisible(7);
+                break;
+            case "STAFF":
+                makeTextFieldsVisible(11);
+                break;
+            case "STORE":
+                makeTextFieldsVisible(4);
+                break;
         }
     }
 
-    public void selectTable() {
-        tableView1.getColumns().clear();
-        //tableView.setEditable(true);
+    private void selectTable(String table, int tableNumber) {
 
-        if (choiceBox1.getSelectionModel().getSelectedItem().equals("Actor")) {
+        if (table.equals("Actor")) {
             TableColumn idCol = new TableColumn("Actor id");
             TableColumn firstNameCol = new TableColumn("First Name");
             TableColumn lastNameCol = new TableColumn("Last Name");
@@ -110,9 +157,9 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
 
-            tableView1.getColumns().addAll(idCol, firstNameCol, lastNameCol, lastUpdateCol);
+            sortToTableView(tableNumber).getColumns().addAll(idCol, firstNameCol, lastNameCol, lastUpdateCol);
 
-        } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Address")) {
+        } else if (table.equals("Address")) {
             TableColumn idCol = new TableColumn("Address id");
             TableColumn addressCol = new TableColumn("Address");
             TableColumn secondAddressCol = new TableColumn("Address 2");
@@ -133,10 +180,10 @@ public class MainWindowController implements Initializable {
             locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView1.getColumns().addAll(idCol, addressCol, secondAddressCol, districtCol, cityCol,
+            sortToTableView(tableNumber).getColumns().addAll(idCol, addressCol, secondAddressCol, districtCol, cityCol,
                     postcodeCol, phoneCol, locationCol, lastUpdateCol);
 
-        } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Category")) {
+        } else if (table.equals("Category")) {
             TableColumn idCol = new TableColumn("Category id");
             TableColumn nameCol = new TableColumn("Name");
             TableColumn lastUpdateCol = new TableColumn("Last update");
@@ -145,9 +192,9 @@ public class MainWindowController implements Initializable {
             nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView1.getColumns().addAll(idCol, nameCol, lastUpdateCol);
+            sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, lastUpdateCol);
 
-        } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("City")) {
+        } else if (table.equals("City")) {
             TableColumn idCol = new TableColumn("City id");
             TableColumn nameCol = new TableColumn("Name");
             TableColumn countryIdCol = new TableColumn("Country id");
@@ -158,9 +205,9 @@ public class MainWindowController implements Initializable {
             countryIdCol.setCellValueFactory(new PropertyValueFactory<>("country_id"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView1.getColumns().addAll(idCol, nameCol, countryIdCol, lastUpdateCol);
+            sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, countryIdCol, lastUpdateCol);
 
-        } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Country")) {
+        } else if (table.equals("Country")) {
             TableColumn idCol = new TableColumn("Country id");
             TableColumn nameCol = new TableColumn("Country");
             TableColumn lastUpdateCol = new TableColumn("Last update");
@@ -170,9 +217,9 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
 
-            tableView1.getColumns().addAll(idCol, nameCol, lastUpdateCol);
+            sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, lastUpdateCol);
 
-        } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Customer")) {
+        } else if (table.equals("Customer")) {
             TableColumn customerIdCol = new TableColumn("Customer id");
             TableColumn storeIdCol = new TableColumn("Store id");
             TableColumn firstNameCol = new TableColumn("First Name");
@@ -194,10 +241,10 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
 
-            tableView1.getColumns().addAll(customerIdCol, storeIdCol, firstNameCol, lastNameCol, emailCol,
+            sortToTableView(tableNumber).getColumns().addAll(customerIdCol, storeIdCol, firstNameCol, lastNameCol, emailCol,
                     activeCol, createdCol, lastUpdateCol);
 
-        } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Film")) {
+        } else if (table.equals("Film")) {
             TableColumn filmIdCol = new TableColumn("Film id");
             TableColumn titleCol = new TableColumn("Title");
             TableColumn descriptionCol = new TableColumn("Description");
@@ -227,10 +274,10 @@ public class MainWindowController implements Initializable {
             specialFeaturesCol.setCellValueFactory(new PropertyValueFactory<>("special_features"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView1.getColumns().addAll(filmIdCol, titleCol, descriptionCol, releasedCol, languageIdCol, originalLanguageCol,
+            sortToTableView(tableNumber).getColumns().addAll(filmIdCol, titleCol, descriptionCol, releasedCol, languageIdCol, originalLanguageCol,
                     rentalDurationCol, rentalRateCol, lengthCol, replacementCostCol, ratingCol, specialFeaturesCol, lastUpdateCol);
 
-        } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Inventory")) {
+        } else if (table.equals("Inventory")) {
             TableColumn inventoryIdCol = new TableColumn("Inventory id");
             TableColumn filmIdCol = new TableColumn("Film id");
             TableColumn storeIdCol = new TableColumn("Store id");
@@ -241,9 +288,9 @@ public class MainWindowController implements Initializable {
             storeIdCol.setCellValueFactory(new PropertyValueFactory<>("store_id"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView1.getColumns().addAll(inventoryIdCol, filmIdCol, storeIdCol, lastUpdateCol);
+            sortToTableView(tableNumber).getColumns().addAll(inventoryIdCol, filmIdCol, storeIdCol, lastUpdateCol);
 
-        } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Language")) {
+        } else if (table.equals("Language")) {
             TableColumn idCol = new TableColumn("Language id");
             TableColumn nameCol = new TableColumn("Name");
             TableColumn lastUpdateCol = new TableColumn("Last update");
@@ -252,9 +299,9 @@ public class MainWindowController implements Initializable {
             nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView1.getColumns().addAll(idCol, nameCol, lastUpdateCol);
+            sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, lastUpdateCol);
 
-        } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Payment")) {
+        } else if (table.equals("Payment")) {
             TableColumn paymentIdCol = new TableColumn("Payment id");
             TableColumn customerIdCol = new TableColumn("Customer id");
             TableColumn staffIdCol = new TableColumn("Staff id");
@@ -271,10 +318,10 @@ public class MainWindowController implements Initializable {
             paymentDateCol.setCellValueFactory(new PropertyValueFactory<>("payment_date"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView1.getColumns().addAll(paymentIdCol, customerIdCol, staffIdCol, rentalIdCol,
+            sortToTableView(tableNumber).getColumns().addAll(paymentIdCol, customerIdCol, staffIdCol, rentalIdCol,
                     amountCol, paymentDateCol, lastUpdateCol);
 
-        } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Rental")) {
+        } else if (table.equals("Rental")) {
             TableColumn rentalIdCol = new TableColumn("Rental id");
             TableColumn rentalDateCol = new TableColumn("Rental date");
             TableColumn inventoryIdCol = new TableColumn("Inventory id");
@@ -291,10 +338,10 @@ public class MainWindowController implements Initializable {
             staffIdCol.setCellValueFactory(new PropertyValueFactory<>("staff_id"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView1.getColumns().addAll(rentalIdCol, rentalDateCol, inventoryIdCol, customerIdCol,
+            sortToTableView(tableNumber).getColumns().addAll(rentalIdCol, rentalDateCol, inventoryIdCol, customerIdCol,
                     returnDateCol, staffIdCol, lastUpdateCol);
 
-        } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Staff")) {
+        } else if (table.equals("Staff")) {
             TableColumn idCol = new TableColumn("Staff id");
             TableColumn firstNameCol = new TableColumn("First Name");
             TableColumn lastNameCol = new TableColumn("Last Name");
@@ -319,10 +366,10 @@ public class MainWindowController implements Initializable {
             passwordCol.setCellValueFactory(new PropertyValueFactory<>("password"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView1.getColumns().addAll(idCol, firstNameCol, lastNameCol, addressIdCol, pictureCol, emailCol,
+            sortToTableView(tableNumber).getColumns().addAll(idCol, firstNameCol, lastNameCol, addressIdCol, pictureCol, emailCol,
                     storeIDCol, activeCol, usernameCol, passwordCol, lastNameCol);
 
-        } else if (choiceBox1.getSelectionModel().getSelectedItem().equals("Store")) {
+        } else if (table.equals("Store")) {
             TableColumn storeIdCol = new TableColumn("Store id");
             TableColumn managerStaffIdCol = new TableColumn("Manager staff id");
             TableColumn addressIdCol = new TableColumn("Address id");
@@ -333,11 +380,32 @@ public class MainWindowController implements Initializable {
             addressIdCol.setCellValueFactory(new PropertyValueFactory<>("address_id"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-            tableView1.getColumns().addAll(storeIdCol, managerStaffIdCol, addressIdCol, lastUpdateCol);
+            sortToTableView(tableNumber).getColumns().addAll(storeIdCol, managerStaffIdCol, addressIdCol, lastUpdateCol);
 
         } else {
             System.out.println("Nothing");
             tableView1.getColumns().clear();
+        }
+    }
+
+    public TableView sortToTableView(int tableNumber) {
+
+        System.out.println("in sort to tableView");
+        switch (tableNumber) {
+            case 1:
+                tableView1.getColumns().clear();
+                return tableView1;
+            case 2:
+                tableView2.getColumns().clear();
+                return tableView2;
+            case 3:
+                tableView3.getColumns().clear();
+                return tableView3;
+            case 4:
+                tableView4.getColumns().clear();
+                return tableView4;
+            default:
+                return null;
         }
     }
 
@@ -346,9 +414,9 @@ public class MainWindowController implements Initializable {
         choiceBox1.setItems(FXCollections.observableArrayList(databaseTablesList));
         choiceBox2.setItems(FXCollections.observableArrayList(databaseTablesList));
         insertChoiceBox.setItems(FXCollections.observableArrayList(databaseTablesList));
+        choiceBox3.setItems(FXCollections.observableArrayList(databaseTablesList));
         choiceBox4.setItems(FXCollections.observableArrayList(databaseTablesList));
-        choiceBox5.setItems(FXCollections.observableArrayList(databaseTablesList));
-        choiceBox6.setItems(FXCollections.observableArrayList(
+        choiceBox5.setItems(FXCollections.observableArrayList(
                 "Actors in movies", "Film & categories", "Film & text"));
 
         textFieldsArray = new TextField[]{textField1, textField2, textField3, textField4, textField5, textField6,
