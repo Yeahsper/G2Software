@@ -19,18 +19,14 @@ public class Film implements Serializable {
     private String description;
     @Column(name = "release_year", nullable = false)
     private String release_year;
-    @OneToOne
-    @JoinColumn(name = "language_id")
-    private Language language_obj;
-    @OneToOne
-    @JoinColumn(name = "original_language_id")
-    private Language original_language_obj;
     @Column(name = "rental_duration", nullable = false)
     private int rental_duration;
     @Column(name = "rental_rate", nullable = false)
     private double rental_rate;
     @Column(name = "length", nullable = false)
     private int length;
+    @Column(name = "original_language", nullable = false)
+    private int original_language;
     @Column(name = "replacement_cost", nullable = false)
     private double replacement_cost;
     @Column(name = "rating", nullable = false)
@@ -39,6 +35,59 @@ public class Film implements Serializable {
     private String special_features;
     @Column(name = "last_update", nullable = false)
     private String last_update;
+
+    @OneToOne
+    @JoinColumn(name = "language_id")
+    private Language language_obj;
+
+
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinTable(name="film_category", joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name="category_id"))
+    private Category category;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="film_actor", joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name="actor_id"))
+    private List<Actor> actorList;
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "film_id=" + film_id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", release_year='" + release_year + '\'' +
+                ", rental_duration=" + rental_duration +
+                ", rental_rate=" + rental_rate +
+                ", length=" + length +
+                ", replacement_cost=" + replacement_cost +
+                ", rating='" + rating + '\'' +
+                ", special_features='" + special_features + '\'' +
+                ", last_update='" + last_update + '\'' +
+                ", language_obj=" + language_obj.getName() +
+                ", original_language=" + original_language +
+                ", category=" + category.getName() +
+                ", actorList_size=" + actorList.size() +
+                '}';
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<Actor> getActorList() {
+        return actorList;
+    }
+
+    public void setActorList(List<Actor> actorList) {
+        this.actorList = actorList;
+    }
 
     public int getFilm_id() {
         return film_id;
@@ -80,13 +129,7 @@ public class Film implements Serializable {
         this.language_obj = language_obj;
     }
 
-    public Language getOriginal_language_obj() {
-        return original_language_obj;
-    }
 
-    public void setOriginal_language_obj(Language original_language_obj) {
-        this.original_language_obj = original_language_obj;
-    }
 
     public int getRental_duration() {
         return rental_duration;
@@ -142,31 +185,5 @@ public class Film implements Serializable {
 
     public void setLast_update(String last_update) {
         this.last_update = last_update;
-    }
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="film_actor", joinColumns = @JoinColumn(name = "film_id"),
-            inverseJoinColumns = @JoinColumn(name="actor_id"))
-    private List<Actor> actor;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinTable(name="film_category", joinColumns = @JoinColumn(name = "film_id"),
-            inverseJoinColumns = @JoinColumn(name="category_id"))
-    private Category category;
-
-    public List<Actor> getActor() {
-        return actor;
-    }
-
-    public void setActor(List<Actor> actor) {
-        this.actor = actor;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 }

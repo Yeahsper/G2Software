@@ -25,7 +25,18 @@ public class Actor implements Serializable {
     @Column(name = "last_update", nullable = false)
     private String last_update;
 
-	@ManyToMany(cascade = CascadeType.ALL)
+    @Override
+    public String toString() {
+        return "Actor{" +
+                "actor_id=" + actor_id +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", last_update='" + last_update + '\'' +
+                ", films=" + films +
+                '}';
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "film_actor",
 	joinColumns = {@JoinColumn(name = "actor_id")},
 	inverseJoinColumns = { @JoinColumn(name = "film_id")})

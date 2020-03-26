@@ -18,16 +18,6 @@ public class Country implements Serializable{
         @Column(name="last_update",nullable = false )
         private String last_update;
 
-    @OneToMany(mappedBy = "country_OBJ")
-    private List<City> city_list;
-
-    public void setCity_list(List<City> city_list) {
-        this.city_list = city_list;
-    }
-
-    public List<City> getCity_list() {
-        return city_list;
-    }
 
     public int getCountry_id()
         {return country_id;}
@@ -51,6 +41,13 @@ public class Country implements Serializable{
         return last_update;
     }
 
+    @Override
+    public String toString() {
+        return "Country{" +
+                "country_id=" + country_id +
+                ", country='" + country + '\'' +
+                ", last_update='" + last_update + '\'' +
 
-
+                '}';
+    }
 }

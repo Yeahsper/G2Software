@@ -56,5 +56,13 @@ public class Inventory implements Serializable {
         return inventory_id;
     }
 
-
+    @Override
+    public String toString() {
+        return "Inventory{" +
+                "inventory_id=" + inventory_id +
+                ", last_update='" + last_update + '\'' +
+                ", film_OBJ=" + film_OBJ +
+                ", store_OBJ=" + store_OBJ +
+                '}';
+    }
 }

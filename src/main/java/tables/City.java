@@ -19,12 +19,23 @@ public class City implements Serializable{
     @Column(name="last_update",nullable = false )
     private String last_update;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="country_id")
     private Country country_OBJ;
 
     @OneToMany(mappedBy = "city")
     private List<Address> addressList = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "city_id=" + city_id +
+                ", city='" + city + '\'' +
+                ", last_update='" + last_update + '\'' +
+                ", country_OBJ=" + country_OBJ +
+                ", addressList=" + addressList +
+                '}';
+    }
 
     public void setCity_id(int city_id) {
         this.city_id = city_id;

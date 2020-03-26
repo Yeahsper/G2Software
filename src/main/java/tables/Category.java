@@ -25,6 +25,16 @@ public class Category implements Serializable{
         return film;
     }
 
+    @Override
+    public String toString() {
+        return "Category{" +
+                "category_id=" + category_id +
+                ", name='" + name + '\'' +
+                ", last_update='" + last_update + '\'' +
+                ", film=" + film +
+                '}';
+    }
+
     public void setFilm(List<Film> film) {
         this.film = film;
     }

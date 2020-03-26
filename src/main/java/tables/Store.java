@@ -14,9 +14,6 @@ public class Store implements Serializable {
     @Column(name="store_id",unique = true)
     private int id;
 
-        @OneToMany(mappedBy ="store")
-        private List<Customer> customer_obj;
-
 
     //TODO change XXX to the onetoone jointable from Address class.
     @OneToOne(cascade = CascadeType.ALL)
@@ -48,4 +45,13 @@ public class Store implements Serializable {
 //    public void setManager(Staff manager) {
 //        this.manager = manager;
 //    }
+
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "id=" + id +
+                ", address_obj=" + address_obj +
+                '}';
+    }
 }
