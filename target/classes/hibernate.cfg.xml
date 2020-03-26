@@ -17,6 +17,9 @@
         <mapping resource="person.hbm.xml"/> -->
         <mapping class="tables.City"/>
         <mapping class="tables.Country"/>
+        <mapping class="tables.Address"/>
+        <mapping class="tables.Store"/>
+        <mapping class="tables.Customer"/>
 
     </session-factory>
 

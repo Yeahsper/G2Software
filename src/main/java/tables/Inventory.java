@@ -12,15 +12,16 @@ public class Inventory implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="inventory_id",unique =true )
     private int inventory_id;
+
     @Column(name="last_update",nullable = false )
     private String last_update;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "film__id")
+    @JoinColumn(name = "film_id")
     private Film film_OBJ;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "store__id")
+    @JoinColumn(name = "store_id")
     private Store store_OBJ;
 
     public Film getFilm_OBJ() {
@@ -54,4 +55,6 @@ public class Inventory implements Serializable {
     public int getInventory_id() {
         return inventory_id;
     }
+
+
 }

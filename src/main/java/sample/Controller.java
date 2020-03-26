@@ -2,8 +2,8 @@ package sample;
 
 import Util.HibernateUtil;
 import org.hibernate.Session;
-import tables.City;
-import tables.Country;
+import tables.Address;
+import tables.Store;
 
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
@@ -17,13 +17,14 @@ public class Controller {
 
         session.beginTransaction();
 
-        String query = "Select c from City c Where c IS not null";
-        TypedQuery<City> tq = session.createQuery(query, City.class);
-        List<City> kons;
+        String query = "Select c from Address c Where c IS not null";
+        TypedQuery<Address> tq = session.createQuery(query, Address.class);
+        List<Address> kons;
         try {
             // Get matching customer object and output
             kons = tq.getResultList();
-            kons.forEach(perss ->System.out.println(perss.getCity()+perss.getCountry_OBJ().getCountry_id()));
+
+            kons.forEach(perss -> System.out.println(perss.getAddress().toString());
         } catch (
                 NoResultException ex) {
             ex.printStackTrace();

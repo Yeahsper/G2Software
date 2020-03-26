@@ -17,6 +17,14 @@
         <mapping resource="person.hbm.xml"/> -->
         <mapping class="tables.City"/>
         <mapping class="tables.Country"/>
+        <mapping class="tables.Address"/>
+        <mapping class="tables.Store"/>
+        <mapping class="tables.Customer"/>
+        <mapping class="tables.Category"/>
+        <mapping class="tables.Inventory"/>
+        <mapping class="tables.Film"/>
+        <mapping class="tables.Language"/>
+        <mapping class="tables.Actor"/>
 
     </session-factory>
 

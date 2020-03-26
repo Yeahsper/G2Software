@@ -2,6 +2,8 @@ package tables;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+
 @Entity
 @Table(name= "category")
 public class Category implements Serializable{
@@ -16,17 +18,15 @@ public class Category implements Serializable{
         @Column(name="last_update",nullable = false )
         private String last_update;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinTable(name="film_category", joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name="film_id"))
-    private Category category_OBJ;
+    @OneToMany(mappedBy = "category")
+    private List<Film> film;
 
-    public void setCategory_OBJ(Category category_OBJ) {
-        this.category_OBJ = category_OBJ;
+    public List<Film> getFilm() {
+        return film;
     }
 
-    public Category getCategory_OBJ() {
-        return category_OBJ;
+    public void setFilm(List<Film> film) {
+        this.film = film;
     }
 
     public void setLast_update(String last_update) {

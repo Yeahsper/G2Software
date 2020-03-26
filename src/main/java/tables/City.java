@@ -2,6 +2,8 @@ package tables;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name= "city")
@@ -10,7 +12,7 @@ public class City implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="city_id",unique =true )
+    @Column(name="city_id",unique =true)
     private int city_id;
     @Column(name="city",nullable = false )
     private String city;
@@ -21,6 +23,25 @@ public class City implements Serializable{
     @JoinColumn(name="country_id")
     private Country country_OBJ;
 
+    @OneToMany(mappedBy = "city")
+    private List<Address> addressList = new ArrayList<>();
+
+    public void setCity_id(int city_id) {
+        this.city_id = city_id;
+    }
+
+    public int getCity_id() {
+        return city_id;
+    }
+
+    public void setAddressList(List<Address> addressList) {
+        this.addressList = addressList;
+    }
+
+    public List<Address> getAddressList() {
+        return addressList;
+    }
+
     public void setCountry_OBJ(Country country_) {
         this.country_OBJ = country_;
     }
@@ -28,11 +49,6 @@ public class City implements Serializable{
         return country_OBJ;
     }
 
-    public int getID()
-    {return city_id;}
-    public void setID(int a){
-        city_id=a;
-    }
 
     public void setCity(String city) {
         this.city = city;
