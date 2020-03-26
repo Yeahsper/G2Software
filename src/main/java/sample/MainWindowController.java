@@ -7,17 +7,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import tables.Actor;
+import tables.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainWindowController implements Initializable {
-
-    @FXML
-    private Button updateBtn, deleteBtn, insertBtn, addToJointTableBtn, removeBtn;
-    @FXML
-    private Button selectBtnOne,selectBtnTwo,selectBtnThree,selectBtnFour;
 
     @FXML
     private TextField textField1, textField2, textField3, textField4, textField5, textField6;
@@ -146,10 +141,10 @@ public class MainWindowController implements Initializable {
     private void selectTable(String table, int tableNumber) {
 
         if (table.equals("Actor")) {
-            TableColumn idCol = new TableColumn("Actor id");
-            TableColumn firstNameCol = new TableColumn("First Name");
-            TableColumn lastNameCol = new TableColumn("Last Name");
-            TableColumn lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Actor, Number> idCol = new TableColumn("Actor id");
+            TableColumn<Actor, String> firstNameCol = new TableColumn("First Name");
+            TableColumn<Actor, String> lastNameCol = new TableColumn("Last Name");
+            TableColumn<Actor, String> lastUpdateCol = new TableColumn("Last update");
 
             idCol.setCellValueFactory(new PropertyValueFactory<>("actor_id"));
             firstNameCol.setCellValueFactory(new PropertyValueFactory<>("first_name"));
@@ -160,15 +155,15 @@ public class MainWindowController implements Initializable {
             sortToTableView(tableNumber).getColumns().addAll(idCol, firstNameCol, lastNameCol, lastUpdateCol);
 
         } else if (table.equals("Address")) {
-            TableColumn idCol = new TableColumn("Address id");
-            TableColumn addressCol = new TableColumn("Address");
-            TableColumn secondAddressCol = new TableColumn("Address 2");
-            TableColumn districtCol = new TableColumn("District");
-            TableColumn cityCol = new TableColumn("City id");
-            TableColumn postcodeCol = new TableColumn("Postal code");
-            TableColumn phoneCol = new TableColumn("Phone");
-            TableColumn locationCol = new TableColumn("Location");
-            TableColumn lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Address, Number> idCol = new TableColumn("Address id");
+            TableColumn<Address, String> addressCol = new TableColumn("Address");
+            TableColumn<Address, String> secondAddressCol = new TableColumn("Address 2");
+            TableColumn<Address, String> districtCol = new TableColumn("District");
+            TableColumn<Address, Number> cityCol = new TableColumn("City id");
+            TableColumn<Address, String> postcodeCol = new TableColumn("Postal code");
+            TableColumn<Address, String> phoneCol = new TableColumn("Phone");
+            TableColumn<Address, String> locationCol = new TableColumn("Location");
+            TableColumn<Address, String> lastUpdateCol = new TableColumn("Last update");
 
             idCol.setCellValueFactory(new PropertyValueFactory<>("address_id"));
             addressCol.setCellValueFactory(new PropertyValueFactory<>("address"));
@@ -220,15 +215,15 @@ public class MainWindowController implements Initializable {
             sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, lastUpdateCol);
 
         } else if (table.equals("Customer")) {
-            TableColumn customerIdCol = new TableColumn("Customer id");
-            TableColumn storeIdCol = new TableColumn("Store id");
-            TableColumn firstNameCol = new TableColumn("First Name");
-            TableColumn lastNameCol = new TableColumn("Last Name");
-            TableColumn emailCol = new TableColumn("Email");
-            TableColumn addressIdCol = new TableColumn("Address id");
-            TableColumn activeCol = new TableColumn("Active");
-            TableColumn createdCol = new TableColumn("Created date");
-            TableColumn lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Customer, Number> customerIdCol = new TableColumn("Customer id");
+            TableColumn<Customer, Number> storeIdCol = new TableColumn("Store id");
+            TableColumn<Customer, String> firstNameCol = new TableColumn("First Name");
+            TableColumn<Customer, String> lastNameCol = new TableColumn("Last Name");
+            TableColumn<Customer, String> emailCol = new TableColumn("Email");
+            TableColumn<Customer, String> addressIdCol = new TableColumn("Address id");
+            TableColumn<Customer, Number> activeCol = new TableColumn("Active");
+            TableColumn<Customer, String> createdCol = new TableColumn("Created date");
+            TableColumn<Customer, String> lastUpdateCol = new TableColumn("Last update");
 
             customerIdCol.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
             storeIdCol.setCellValueFactory(new PropertyValueFactory<>("store_id"));
@@ -291,9 +286,9 @@ public class MainWindowController implements Initializable {
             sortToTableView(tableNumber).getColumns().addAll(inventoryIdCol, filmIdCol, storeIdCol, lastUpdateCol);
 
         } else if (table.equals("Language")) {
-            TableColumn idCol = new TableColumn("Language id");
-            TableColumn nameCol = new TableColumn("Name");
-            TableColumn lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Language, Number> idCol = new TableColumn("Language id");
+            TableColumn<Language, String> nameCol = new TableColumn("Name");
+            TableColumn<Language, String> lastUpdateCol = new TableColumn("Last update");
 
             idCol.setCellValueFactory(new PropertyValueFactory<>("language_id"));
             nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -370,10 +365,10 @@ public class MainWindowController implements Initializable {
                     storeIDCol, activeCol, usernameCol, passwordCol, lastNameCol);
 
         } else if (table.equals("Store")) {
-            TableColumn storeIdCol = new TableColumn("Store id");
-            TableColumn managerStaffIdCol = new TableColumn("Manager staff id");
-            TableColumn addressIdCol = new TableColumn("Address id");
-            TableColumn lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Store, Number> storeIdCol = new TableColumn("Store id");
+            TableColumn<Store, Number> managerStaffIdCol = new TableColumn("Manager staff id");
+            TableColumn<Store, Number> addressIdCol = new TableColumn("Address id");
+            TableColumn<Store, String> lastUpdateCol = new TableColumn("Last update");
 
             storeIdCol.setCellValueFactory(new PropertyValueFactory<>("store_id"));
             managerStaffIdCol.setCellValueFactory(new PropertyValueFactory<>("manager_staff_id"));
