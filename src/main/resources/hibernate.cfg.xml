@@ -7,18 +7,27 @@
     <session-factory>
         <property name="hbm2ddl.auto">update</property>
         <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
-        <property name="hibernate.connection.url">x</property>
-        <property name="hibernate.connection.username">x</property>
-        <property name="hibernate.connection.password">x</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/sakila?serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">javauser</property>
+        <property name="hibernate.connection.password">java</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="show_sql">true</property>
         <property name="format_sql">false</property>
         <!--	<mapping resource="concert.hbm.xml"/>
          <mapping resource="person.hbm.xml"/> -->
+        <mapping class="tables.Customer"/>
+        <mapping class="tables.Store"/>
         <mapping class="tables.Address"/>
-<!--        <mapping class="tables.Person"/>-->
-<!--        <mapping class="tables.Concert_Person"/>-->
-<!--        <mapping class="tables.DTOConcert_Person"/>-->
+        <mapping class="tables.Language"/>
+        <mapping class="tables.Actor"/>
+        <mapping class="tables.Customer"/>
+        <mapping class="tables.Store"/>
+        <mapping class="tables.Category"/>
+        <mapping class="tables.City"/>
+        <mapping class="tables.Country"/>
+        <mapping class="tables.Inventory"/>
+        <mapping class="tables.Staff"/>
+        <mapping class="tables.Film"/>
 
     </session-factory>
 
