@@ -11,7 +11,7 @@ public class HibernateUtil {
     //This gets overwritten in LoginGUI.
     private static String username = "javauser";
     private static String password = "java";
-    private static String dbConnection = "jdbc:mysql://localhost:3330/sakila?serverTimezone=UTC";
+    private static String dbConnection = "jdbc:mysql://localhost:3306/sakila?serverTimezone=UTC";
 
 
     //XML based configuration
