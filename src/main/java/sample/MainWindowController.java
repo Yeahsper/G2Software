@@ -137,7 +137,7 @@ public class MainWindowController implements Initializable {
         }
     }
 
-    public void clearTableView(int tableNumber){
+    public void clearTableView(int tableNumber) {
         switch (tableNumber) {
             case 1:
                 tableView1.getColumns().clear();
@@ -180,10 +180,10 @@ public class MainWindowController implements Initializable {
         clearTableView(tableNumber);
 
         if (table.equals("Actor")) {
-            TableColumn<Actor, Number> idCol = new TableColumn("Actor id");
-            TableColumn<Actor, String> firstNameCol = new TableColumn("First Name");
-            TableColumn<Actor, String> lastNameCol = new TableColumn("Last Name");
-            TableColumn<Actor, String> lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Actor, Number> idCol = new TableColumn<>("Actor id");
+            TableColumn<Actor, String> firstNameCol = new TableColumn<>("First Name");
+            TableColumn<Actor, String> lastNameCol = new TableColumn<>("Last Name");
+            TableColumn<Actor, String> lastUpdateCol = new TableColumn<>("Last update");
 
             idCol.setCellValueFactory(new PropertyValueFactory<>("actor_id"));
             firstNameCol.setCellValueFactory(new PropertyValueFactory<>("first_name"));
@@ -196,27 +196,30 @@ public class MainWindowController implements Initializable {
 
             firstNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             firstNameCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setFirst_name(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setFirst_name(t.getNewValue());
+            });
 
             lastNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             lastNameCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_name(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_name(t.getNewValue());
+            });
 
             lastUpdateCol.setCellFactory(TextFieldTableCell.forTableColumn());
             lastUpdateCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());
+            });
 
 
         } else if (table.equals("Address")) {
-            TableColumn<Address, Number> idCol = new TableColumn("Address id");
-            TableColumn<Address, String> addressCol = new TableColumn("Address");
-            TableColumn<Address, String> secondAddressCol = new TableColumn("Address 2");
-            TableColumn<Address, String> districtCol = new TableColumn("District");
-            TableColumn<Address, Number> cityIdCol = new TableColumn("City id");
-            TableColumn<Address, String> postcodeCol = new TableColumn("Postal code");
-            TableColumn<Address, String> phoneCol = new TableColumn("Phone");
-            TableColumn<Address, String> locationCol = new TableColumn("Location");
-            TableColumn<Address, String> lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Address, Number> idCol = new TableColumn<>("Address id");
+            TableColumn<Address, String> addressCol = new TableColumn<>("Address");
+            TableColumn<Address, String> secondAddressCol = new TableColumn<>("Address 2");
+            TableColumn<Address, String> districtCol = new TableColumn<>("District");
+            TableColumn<Address, Number> cityIdCol = new TableColumn<>("City id");
+            TableColumn<Address, String> postcodeCol = new TableColumn<>("Postal code");
+            TableColumn<Address, String> phoneCol = new TableColumn<>("Phone");
+            TableColumn<Address, String> locationCol = new TableColumn<>("Location");
+            TableColumn<Address, String> lastUpdateCol = new TableColumn<>("Last update");
 
             idCol.setCellValueFactory(new PropertyValueFactory<>("address_id"));
             addressCol.setCellValueFactory(new PropertyValueFactory<>("address"));
@@ -235,40 +238,54 @@ public class MainWindowController implements Initializable {
 
             addressCol.setCellFactory(TextFieldTableCell.forTableColumn());
             addressCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setAddress(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setAddress(t.getNewValue());
+            });
 
             secondAddressCol.setCellFactory(TextFieldTableCell.forTableColumn());
             secondAddressCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setAddress2(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setAddress2(t.getNewValue());
+            });
 
             districtCol.setCellFactory(TextFieldTableCell.forTableColumn());
             districtCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setDistrict(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setDistrict(t.getNewValue());
+            });
 
+            /*
             cityIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
             cityIdCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setCity_id(t.getNewValue().intValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setCity_obj(t.getNewValue().intValue());
+            });
+
+             */
 
             postcodeCol.setCellFactory(TextFieldTableCell.forTableColumn());
             postcodeCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setPostal_code(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setPostal_code(t.getNewValue());
+            });
 
             phoneCol.setCellFactory(TextFieldTableCell.forTableColumn());
             phoneCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setPhone(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setPhone(t.getNewValue());
+            });
 
+            /*
             locationCol.setCellFactory(TextFieldTableCell.forTableColumn());
             locationCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLocation(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLocation(t.getNewValue());
+            });
+
+             */
 
             lastUpdateCol.setCellFactory(TextFieldTableCell.forTableColumn());
             lastUpdateCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());
+            });
 
         } else if (table.equals("Category")) {
-            TableColumn idCol = new TableColumn("Category id");
-            TableColumn nameCol = new TableColumn("Name");
-            TableColumn lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Category, Number> idCol = new TableColumn<>("Category id");
+            TableColumn<Category, String> nameCol = new TableColumn<>("Name");
+            TableColumn<Category, String> lastUpdateCol = new TableColumn<>("Last update");
 
             idCol.setCellValueFactory(new PropertyValueFactory<>("category_id"));
             nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -278,23 +295,21 @@ public class MainWindowController implements Initializable {
 
             // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
-            /*
             nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             nameCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setName(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setName(t.getNewValue());
+            });
 
             lastUpdateCol.setCellFactory(TextFieldTableCell.forTableColumn());
             lastUpdateCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
-             */
-
-
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());
+            });
 
         } else if (table.equals("City")) {
-            TableColumn idCol = new TableColumn("City id");
-            TableColumn nameCol = new TableColumn("Name");
-            TableColumn countryIdCol = new TableColumn("Country id");
-            TableColumn lastUpdateCol = new TableColumn("Last update");
+            TableColumn<City, Number> idCol = new TableColumn<>("City id");
+            TableColumn<City, String> nameCol = new TableColumn<>("City");
+            TableColumn<City, Number> countryIdCol = new TableColumn<>("Country id");
+            TableColumn<City, String> lastUpdateCol = new TableColumn<>("Last update");
 
             idCol.setCellValueFactory(new PropertyValueFactory<>("city_id"));
             nameCol.setCellValueFactory(new PropertyValueFactory<>("city"));
@@ -304,25 +319,28 @@ public class MainWindowController implements Initializable {
             sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, countryIdCol, lastUpdateCol);
             // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
-            /*
+
             nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             nameCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setName(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setCity(t.getNewValue());
+            });
 
-            countryIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
+            /*countryIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
             countryIdCol.setOnEditCommit(t -> {
                 t.getTableView().getItems().get(t.getTablePosition().getRow()).setCountry_id(t.getNewValue().intValue());});
 
-            lastUpdateCol.setCellFactory(TextFieldTableCell.forTableColumn());
-            lastUpdateCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
-
              */
 
+            lastUpdateCol.setCellFactory(TextFieldTableCell.forTableColumn());
+            lastUpdateCol.setOnEditCommit(t -> {
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());
+            });
+
+
         } else if (table.equals("Country")) {
-            TableColumn idCol = new TableColumn("Country id");
-            TableColumn nameCol = new TableColumn("Country");
-            TableColumn lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Country, Number> idCol = new TableColumn<>("Country id");
+            TableColumn<Country, String> nameCol = new TableColumn<>("Country");
+            TableColumn<Country, String> lastUpdateCol = new TableColumn<>("Last update");
 
             idCol.setCellValueFactory(new PropertyValueFactory<>("country_id"));
             nameCol.setCellValueFactory(new PropertyValueFactory<>("country"));
@@ -333,27 +351,26 @@ public class MainWindowController implements Initializable {
 
             // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
-            /*
             nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             nameCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setCountry(t.getNewValue().intValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setCountry(t.getNewValue());
+            });
 
             lastUpdateCol.setCellFactory(TextFieldTableCell.forTableColumn());
             lastUpdateCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
-
-             */
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());
+            });
 
         } else if (table.equals("Customer")) {
-            TableColumn<Customer, Number> customerIdCol = new TableColumn("Customer id");
-            TableColumn<Customer, Number> storeIdCol = new TableColumn("Store id");
-            TableColumn<Customer, String> firstNameCol = new TableColumn("First Name");
-            TableColumn<Customer, String> lastNameCol = new TableColumn("Last Name");
-            TableColumn<Customer, String> emailCol = new TableColumn("Email");
-            TableColumn<Customer, String> addressIdCol = new TableColumn("Address id");
-            TableColumn<Customer, Number> activeCol = new TableColumn("Active");
-            TableColumn<Customer, String> createdCol = new TableColumn("Created date");
-            TableColumn<Customer, String> lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Customer, Number> customerIdCol = new TableColumn<>("Customer id");
+            TableColumn<Customer, Number> storeIdCol = new TableColumn<>("Store id");
+            TableColumn<Customer, String> firstNameCol = new TableColumn<>("First Name");
+            TableColumn<Customer, String> lastNameCol = new TableColumn<>("Last Name");
+            TableColumn<Customer, String> emailCol = new TableColumn<>("Email");
+            TableColumn<Customer, String> addressIdCol = new TableColumn<>("Address id");
+            TableColumn<Customer, Number> activeCol = new TableColumn<>("Active");
+            TableColumn<Customer, String> createdCol = new TableColumn<>("Created date");
+            TableColumn<Customer, String> lastUpdateCol = new TableColumn<>("Last update");
 
             customerIdCol.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
             storeIdCol.setCellValueFactory(new PropertyValueFactory<>("store_id"));
@@ -372,15 +389,18 @@ public class MainWindowController implements Initializable {
 
             firstNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             firstNameCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setFirst_name(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setFirst_name(t.getNewValue());
+            });
 
             lastNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             lastNameCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_name(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_name(t.getNewValue());
+            });
 
             emailCol.setCellFactory(TextFieldTableCell.forTableColumn());
             emailCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setEmail(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setEmail(t.getNewValue());
+            });
 
             //TO-DO check if these two really works,there's no get/set for ID
             /*
@@ -396,30 +416,33 @@ public class MainWindowController implements Initializable {
 
             activeCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
             activeCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setActive(t.getNewValue().intValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setActive(t.getNewValue().intValue());
+            });
 
             createdCol.setCellFactory(TextFieldTableCell.forTableColumn());
             createdCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setCreate_date(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setCreate_date(t.getNewValue());
+            });
 
             lastUpdateCol.setCellFactory(TextFieldTableCell.forTableColumn());
             lastUpdateCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());
+            });
 
         } else if (table.equals("Film")) {
-            TableColumn filmIdCol = new TableColumn("Film id");
-            TableColumn titleCol = new TableColumn("Title");
-            TableColumn descriptionCol = new TableColumn("Description");
-            TableColumn releasedCol = new TableColumn("Release year");
-            TableColumn languageIdCol = new TableColumn("Language id");
-            TableColumn originalLanguageCol = new TableColumn("Original language id");
-            TableColumn rentalDurationCol = new TableColumn("Rental Duration");
-            TableColumn rentalRateCol = new TableColumn("Rental rate");
-            TableColumn lengthCol = new TableColumn("Length");
-            TableColumn replacementCostCol = new TableColumn("Replacement cost");
-            TableColumn ratingCol = new TableColumn("Rating");
-            TableColumn specialFeaturesCol = new TableColumn("Special features");
-            TableColumn lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Film, Number> filmIdCol = new TableColumn<>("Film id");
+            TableColumn<Film, String> titleCol = new TableColumn<>("Title");
+            TableColumn<Film, String> descriptionCol = new TableColumn<>("Description");
+            TableColumn<Film, String> releasedCol = new TableColumn<>("Release year");
+            TableColumn<Film, Number> languageIdCol = new TableColumn<>("Language id");
+            TableColumn<Film, Number> originalLanguageCol = new TableColumn<>("Original language id");
+            TableColumn<Film, Number> rentalDurationCol = new TableColumn<>("Rental Duration");
+            TableColumn<Film, Number> rentalRateCol = new TableColumn<>("Rental rate");
+            TableColumn<Film, Number> lengthCol = new TableColumn<>("Length");
+            TableColumn<Film, Number> replacementCostCol = new TableColumn<>("Replacement cost");
+            TableColumn<Film, String> ratingCol = new TableColumn<>("Rating");
+            TableColumn<Film, String> specialFeaturesCol = new TableColumn<>("Special features");
+            TableColumn<Film, String> lastUpdateCol = new TableColumn<>("Last update");
 
             filmIdCol.setCellValueFactory(new PropertyValueFactory<>("film_id"));
             titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -441,19 +464,23 @@ public class MainWindowController implements Initializable {
 
             // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
-            /*
+
             titleCol.setCellFactory(TextFieldTableCell.forTableColumn());
             titleCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setTitle(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setTitle(t.getNewValue());
+            });
 
             descriptionCol.setCellFactory(TextFieldTableCell.forTableColumn());
             descriptionCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setDescription(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setDescription(t.getNewValue());
+            });
 
             releasedCol.setCellFactory(TextFieldTableCell.forTableColumn());
             releasedCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setRelease_year(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setRelease_year(t.getNewValue());
+            });
 
+            /*
             languageIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
             languageIdCol.setOnEditCommit(t -> {
                 t.getTableView().getItems().get(t.getTablePosition().getRow()).setLanguage_id(t.getNewValue().intValue());});
@@ -462,33 +489,44 @@ public class MainWindowController implements Initializable {
             originalLanguageCol.setOnEditCommit(t -> {
                 t.getTableView().getItems().get(t.getTablePosition().getRow()).setOriginal_language_id(t.getNewValue().intValue());});
 
+             */
+
+            rentalDurationCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
+            rentalDurationCol.setOnEditCommit(t -> {
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setRental_duration(t.getNewValue().intValue());
+            });
+
             rentalRateCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
             rentalRateCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setRental_rate(t.getNewValue().doubleValue);});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setRental_rate(t.getNewValue().doubleValue());
+            });
 
             lengthCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
             lengthCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLength(t.getNewValue().intValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLength(t.getNewValue().intValue());
+            });
 
             ratingCol.setCellFactory(TextFieldTableCell.forTableColumn());
             ratingCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setRating(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setRating(t.getNewValue());
+            });
 
             specialFeaturesCol.setCellFactory(TextFieldTableCell.forTableColumn());
             specialFeaturesCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setSpecial_features(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setSpecial_features(t.getNewValue());
+            });
 
             lastUpdateCol.setCellFactory(TextFieldTableCell.forTableColumn());
             lastUpdateCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());
+            });
 
-             */
 
         } else if (table.equals("Inventory")) {
-            TableColumn inventoryIdCol = new TableColumn("Inventory id");
-            TableColumn filmIdCol = new TableColumn("Film id");
-            TableColumn storeIdCol = new TableColumn("Store id");
-            TableColumn lastUpdateCol = new TableColumn("Last update");
+            TableColumn <Inventory, Number>inventoryIdCol = new TableColumn("Inventory id");
+            TableColumn <Inventory, Number>filmIdCol = new TableColumn("Film id");
+            TableColumn <Inventory, Number>storeIdCol = new TableColumn("Store id");
+            TableColumn <Inventory, String>lastUpdateCol = new TableColumn("Last update");
 
             inventoryIdCol.setCellValueFactory(new PropertyValueFactory<>("inventory_id"));
             filmIdCol.setCellValueFactory(new PropertyValueFactory<>("film_id"));
@@ -507,16 +545,18 @@ public class MainWindowController implements Initializable {
             storeIdCol.setOnEditCommit(t -> {
                 t.getTableView().getItems().get(t.getTablePosition().getRow()).setStore_id(t.getNewValue().intValue());});
 
+             */
+
             lastUpdateCol.setCellFactory(TextFieldTableCell.forTableColumn());
             lastUpdateCol.setOnEditCommit(t -> {
                 t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
 
-             */
+
 
         } else if (table.equals("Language")) {
-            TableColumn<Language, Number> idCol = new TableColumn("Language id");
-            TableColumn<Language, String> nameCol = new TableColumn("Name");
-            TableColumn<Language, String> lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Language, Number> idCol = new TableColumn<>("Language id");
+            TableColumn<Language, String> nameCol = new TableColumn<>("Name");
+            TableColumn<Language, String> lastUpdateCol = new TableColumn<>("Last update");
 
             idCol.setCellValueFactory(new PropertyValueFactory<>("language_id"));
             nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -528,11 +568,13 @@ public class MainWindowController implements Initializable {
 
             nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             nameCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setName(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setName(t.getNewValue());
+            });
 
             lastUpdateCol.setCellFactory(TextFieldTableCell.forTableColumn());
             lastUpdateCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());
+            });
 
 
         } else if (table.equals("Payment")) {
@@ -632,17 +674,17 @@ public class MainWindowController implements Initializable {
              */
 
         } else if (table.equals("Staff")) {
-            TableColumn idCol = new TableColumn("Staff id");
-            TableColumn firstNameCol = new TableColumn("First Name");
-            TableColumn lastNameCol = new TableColumn("Last Name");
-            TableColumn addressIdCol = new TableColumn("Address id");
-            TableColumn pictureCol = new TableColumn("Picture");
-            TableColumn emailCol = new TableColumn("Email");
-            TableColumn storeIdCol = new TableColumn("Store id");
-            TableColumn activeCol = new TableColumn("Active");
-            TableColumn usernameCol = new TableColumn("Username");
-            TableColumn passwordCol = new TableColumn("Password");
-            TableColumn lastUpdateCol = new TableColumn("Last update");
+            TableColumn <Staff, Number>idCol = new TableColumn<>("Staff id");
+            TableColumn <Staff, String>firstNameCol = new TableColumn<>("First Name");
+            TableColumn <Staff, String>lastNameCol = new TableColumn<>("Last Name");
+            TableColumn <Staff, Number>addressIdCol = new TableColumn<>("Address id");
+            TableColumn pictureCol = new TableColumn<>("Picture");
+            TableColumn <Staff, String>emailCol = new TableColumn<>("Email");
+            TableColumn <Staff, Number>storeIdCol = new TableColumn<>("Store id");
+            TableColumn <Staff, Number>activeCol = new TableColumn<>("Active");
+            TableColumn <Staff, String>usernameCol = new TableColumn<>("Username");
+            TableColumn <Staff, String>passwordCol = new TableColumn<>("Password");
+            TableColumn <Staff, String>lastUpdateCol = new TableColumn<>("Last update");
 
             idCol.setCellValueFactory(new PropertyValueFactory<>("staff_id"));
             firstNameCol.setCellValueFactory(new PropertyValueFactory<>("first_name"));
@@ -660,27 +702,23 @@ public class MainWindowController implements Initializable {
                     storeIdCol, activeCol, usernameCol, passwordCol, lastUpdateCol);
             // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
-            /*
-
             firstNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
-            firstNameCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setFirst_name(t.getNewValue());});
+            firstNameCol.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setFirst_name(t.getNewValue()));
 
             lastNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
-            lastNameCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_name(t.getNewValue());});
+            lastNameCol.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_name(t.getNewValue()));
 
             addressIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
-            addressIdCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setAddress_id(t.getNewValue().intValue());});
+            addressIdCol.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setAddress_id(t.getNewValue().intValue()));
 
             emailCol.setCellFactory(TextFieldTableCell.forTableColumn());
-            emailCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setEmail(t.getNewValue());});
-
+            emailCol.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setEmail(t.getNewValue()));
+/*
             storeIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
             storeIdCol.setOnEditCommit(t -> {
                 t.getTableView().getItems().get(t.getTablePosition().getRow()).setStore_OBJ(t.getNewValue().intValue());});
+
+ */
 
             activeCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
             activeCol.setOnEditCommit(t -> {
@@ -698,13 +736,11 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setOnEditCommit(t -> {
                 t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
 
-             */
-
         } else if (table.equals("Store")) {
-            TableColumn<Store, Number> storeIdCol = new TableColumn("Store id");
-            TableColumn<Store, Number> managerStaffIdCol = new TableColumn("Manager staff id");
-            TableColumn<Store, Number> addressIdCol = new TableColumn("Address id");
-            TableColumn<Store, String> lastUpdateCol = new TableColumn("Last update");
+            TableColumn<Store, Number> storeIdCol = new TableColumn<>("Store id");
+            TableColumn<Store, Number> managerStaffIdCol = new TableColumn<>("Manager staff id");
+            TableColumn<Store, Number> addressIdCol = new TableColumn<>("Address id");
+            TableColumn<Store, String> lastUpdateCol = new TableColumn<>("Last update");
 
             storeIdCol.setCellValueFactory(new PropertyValueFactory<>("store_id"));
             managerStaffIdCol.setCellValueFactory(new PropertyValueFactory<>("manager_staff_id"));
@@ -728,6 +764,9 @@ public class MainWindowController implements Initializable {
                 t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
 
              */
+
+
+
         } else {
             System.out.println("Nothing");
             tableView1.getColumns().clear();
