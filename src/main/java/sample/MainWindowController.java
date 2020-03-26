@@ -151,8 +151,8 @@ public class MainWindowController implements Initializable {
             lastNameCol.setCellValueFactory(new PropertyValueFactory<>("last_name"));
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
-
             sortToTableView(tableNumber).getColumns().addAll(idCol, firstNameCol, lastNameCol, lastUpdateCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else if (table.equals("Address")) {
             TableColumn<Address, Number> idCol = new TableColumn("Address id");
@@ -177,6 +177,7 @@ public class MainWindowController implements Initializable {
 
             sortToTableView(tableNumber).getColumns().addAll(idCol, addressCol, secondAddressCol, districtCol, cityCol,
                     postcodeCol, phoneCol, locationCol, lastUpdateCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else if (table.equals("Category")) {
             TableColumn idCol = new TableColumn("Category id");
@@ -188,6 +189,7 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
             sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, lastUpdateCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else if (table.equals("City")) {
             TableColumn idCol = new TableColumn("City id");
@@ -201,6 +203,7 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
             sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, countryIdCol, lastUpdateCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else if (table.equals("Country")) {
             TableColumn idCol = new TableColumn("Country id");
@@ -213,6 +216,7 @@ public class MainWindowController implements Initializable {
 
 
             sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, lastUpdateCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else if (table.equals("Customer")) {
             TableColumn<Customer, Number> customerIdCol = new TableColumn("Customer id");
@@ -238,6 +242,7 @@ public class MainWindowController implements Initializable {
 
             sortToTableView(tableNumber).getColumns().addAll(customerIdCol, storeIdCol, firstNameCol, lastNameCol, emailCol,
                     activeCol, createdCol, lastUpdateCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else if (table.equals("Film")) {
             TableColumn filmIdCol = new TableColumn("Film id");
@@ -271,6 +276,7 @@ public class MainWindowController implements Initializable {
 
             sortToTableView(tableNumber).getColumns().addAll(filmIdCol, titleCol, descriptionCol, releasedCol, languageIdCol, originalLanguageCol,
                     rentalDurationCol, rentalRateCol, lengthCol, replacementCostCol, ratingCol, specialFeaturesCol, lastUpdateCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else if (table.equals("Inventory")) {
             TableColumn inventoryIdCol = new TableColumn("Inventory id");
@@ -284,6 +290,7 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
             sortToTableView(tableNumber).getColumns().addAll(inventoryIdCol, filmIdCol, storeIdCol, lastUpdateCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else if (table.equals("Language")) {
             TableColumn<Language, Number> idCol = new TableColumn("Language id");
@@ -295,6 +302,7 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
             sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, lastUpdateCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else if (table.equals("Payment")) {
             TableColumn paymentIdCol = new TableColumn("Payment id");
@@ -315,6 +323,7 @@ public class MainWindowController implements Initializable {
 
             sortToTableView(tableNumber).getColumns().addAll(paymentIdCol, customerIdCol, staffIdCol, rentalIdCol,
                     amountCol, paymentDateCol, lastUpdateCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else if (table.equals("Rental")) {
             TableColumn rentalIdCol = new TableColumn("Rental id");
@@ -335,6 +344,7 @@ public class MainWindowController implements Initializable {
 
             sortToTableView(tableNumber).getColumns().addAll(rentalIdCol, rentalDateCol, inventoryIdCol, customerIdCol,
                     returnDateCol, staffIdCol, lastUpdateCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else if (table.equals("Staff")) {
             TableColumn idCol = new TableColumn("Staff id");
@@ -363,6 +373,7 @@ public class MainWindowController implements Initializable {
 
             sortToTableView(tableNumber).getColumns().addAll(idCol, firstNameCol, lastNameCol, addressIdCol, pictureCol, emailCol,
                     storeIDCol, activeCol, usernameCol, passwordCol, lastNameCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else if (table.equals("Store")) {
             TableColumn<Store, Number> storeIdCol = new TableColumn("Store id");
@@ -376,6 +387,7 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
             sortToTableView(tableNumber).getColumns().addAll(storeIdCol, managerStaffIdCol, addressIdCol, lastUpdateCol);
+            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
         } else {
             System.out.println("Nothing");
