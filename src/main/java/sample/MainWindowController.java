@@ -10,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.converter.NumberStringConverter;
 import tables.*;
+import util.ObjectGetter;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -71,22 +72,22 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
-    void openToFirstTableView(ActionEvent event) {
+    void openToFirstTableView(ActionEvent event) throws Exception {
         selectTable(choiceBox1.getSelectionModel().getSelectedItem(), 1);
     }
 
     @FXML
-    void openToSecondTableView(ActionEvent event) {
+    void openToSecondTableView(ActionEvent event) throws Exception {
         selectTable(choiceBox2.getSelectionModel().getSelectedItem(), 2);
     }
 
     @FXML
-    void openToThirdTableView(ActionEvent event) {
+    void openToThirdTableView(ActionEvent event) throws Exception {
         selectTable(choiceBox3.getSelectionModel().getSelectedItem(), 3);
     }
 
     @FXML
-    void openToFourthTableView(ActionEvent event) {
+    void openToFourthTableView(ActionEvent event) throws Exception {
         selectTable(choiceBox4.getSelectionModel().getSelectedItem(), 4);
     }
 
@@ -175,7 +176,7 @@ public class MainWindowController implements Initializable {
     }
 
 
-    private void selectTable(String table, int tableNumber) {
+    private void selectTable(String table, int tableNumber) throws Exception {
 
         clearTableView(tableNumber);
 
@@ -192,7 +193,8 @@ public class MainWindowController implements Initializable {
 
             sortToTableView(tableNumber).getColumns().addAll(idCol, firstNameCol, lastNameCol, lastUpdateCol);
 
-            //sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
+            ObservableList<Actor> actors = FXCollections.observableList(new ObjectGetter().getActor());
+            sortToTableView(tableNumber).setItems(actors);
 
             firstNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             firstNameCol.setOnEditCommit(t -> {
@@ -234,7 +236,8 @@ public class MainWindowController implements Initializable {
             sortToTableView(tableNumber).getColumns().addAll(idCol, addressCol, secondAddressCol, districtCol, cityIdCol,
                     postcodeCol, phoneCol, locationCol, lastUpdateCol);
 
-            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
+            ObservableList<Address> addresses = FXCollections.observableList(new ObjectGetter().getAddress());
+            sortToTableView(tableNumber).setItems(addresses);
 
             addressCol.setCellFactory(TextFieldTableCell.forTableColumn());
             addressCol.setOnEditCommit(t -> {
@@ -293,7 +296,8 @@ public class MainWindowController implements Initializable {
 
             sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, lastUpdateCol);
 
-            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
+            ObservableList<Category> categories = FXCollections.observableList(new ObjectGetter().getCategory());
+            sortToTableView(tableNumber).setItems(categories);
 
             nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             nameCol.setOnEditCommit(t -> {
@@ -317,8 +321,9 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
             sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, countryIdCol, lastUpdateCol);
-            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
 
+            ObservableList<City> cities = FXCollections.observableList(new ObjectGetter().getCity());
+            sortToTableView(tableNumber).setItems(cities);
 
             nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             nameCol.setOnEditCommit(t -> {
@@ -349,7 +354,8 @@ public class MainWindowController implements Initializable {
 
             sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, lastUpdateCol);
 
-            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
+            ObservableList<Country> countries = FXCollections.observableList(new ObjectGetter().getCountry());
+            sortToTableView(tableNumber).setItems(countries);
 
             nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             nameCol.setOnEditCommit(t -> {
@@ -385,7 +391,9 @@ public class MainWindowController implements Initializable {
 
             sortToTableView(tableNumber).getColumns().addAll(customerIdCol, storeIdCol, firstNameCol, lastNameCol, emailCol,
                     activeCol, createdCol, lastUpdateCol);
-            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
+
+            ObservableList<Customer> customers = FXCollections.observableList(new ObjectGetter().getCustomer());
+            sortToTableView(tableNumber).setItems(customers);
 
             firstNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             firstNameCol.setOnEditCommit(t -> {
@@ -462,8 +470,8 @@ public class MainWindowController implements Initializable {
             sortToTableView(tableNumber).getColumns().addAll(filmIdCol, titleCol, descriptionCol, releasedCol, languageIdCol, originalLanguageCol,
                     rentalDurationCol, rentalRateCol, lengthCol, replacementCostCol, ratingCol, specialFeaturesCol, lastUpdateCol);
 
-            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
-
+            ObservableList<Film> films = FXCollections.observableList(new ObjectGetter().getFilm());
+            sortToTableView(tableNumber).setItems(films);
 
             titleCol.setCellFactory(TextFieldTableCell.forTableColumn());
             titleCol.setOnEditCommit(t -> {
@@ -523,10 +531,10 @@ public class MainWindowController implements Initializable {
 
 
         } else if (table.equals("Inventory")) {
-            TableColumn <Inventory, Number>inventoryIdCol = new TableColumn("Inventory id");
-            TableColumn <Inventory, Number>filmIdCol = new TableColumn("Film id");
-            TableColumn <Inventory, Number>storeIdCol = new TableColumn("Store id");
-            TableColumn <Inventory, String>lastUpdateCol = new TableColumn("Last update");
+            TableColumn <Inventory, Number>inventoryIdCol = new TableColumn<>("Inventory id");
+            TableColumn <Inventory, Number>filmIdCol = new TableColumn<>("Film id");
+            TableColumn <Inventory, Number>storeIdCol = new TableColumn<>("Store id");
+            TableColumn <Inventory, String>lastUpdateCol = new TableColumn<>("Last update");
 
             inventoryIdCol.setCellValueFactory(new PropertyValueFactory<>("inventory_id"));
             filmIdCol.setCellValueFactory(new PropertyValueFactory<>("film_id"));
@@ -534,7 +542,9 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
             sortToTableView(tableNumber).getColumns().addAll(inventoryIdCol, filmIdCol, storeIdCol, lastUpdateCol);
-            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
+
+            ObservableList<Inventory> inventories = FXCollections.observableList(new ObjectGetter().getInventory());
+            sortToTableView(tableNumber).setItems(inventories);
 
             /*
             filmIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
@@ -564,7 +574,8 @@ public class MainWindowController implements Initializable {
 
             sortToTableView(tableNumber).getColumns().addAll(idCol, nameCol, lastUpdateCol);
 
-            //sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
+            ObservableList<Language> languages = FXCollections.observableList(new ObjectGetter().getLanguage());
+            sortToTableView(tableNumber).setItems(languages);
 
             nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             nameCol.setOnEditCommit(t -> {
@@ -700,7 +711,9 @@ public class MainWindowController implements Initializable {
 
             sortToTableView(tableNumber).getColumns().addAll(idCol, firstNameCol, lastNameCol, addressIdCol, pictureCol, emailCol,
                     storeIdCol, activeCol, usernameCol, passwordCol, lastUpdateCol);
-            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
+
+            ObservableList<Staff> staff = FXCollections.observableList(new ObjectGetter().getStaff());
+            sortToTableView(tableNumber).setItems(staff);
 
             firstNameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             firstNameCol.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setFirst_name(t.getNewValue()));
@@ -748,7 +761,9 @@ public class MainWindowController implements Initializable {
             lastUpdateCol.setCellValueFactory(new PropertyValueFactory<>("last_update"));
 
             sortToTableView(tableNumber).getColumns().addAll(storeIdCol, managerStaffIdCol, addressIdCol, lastUpdateCol);
-            // sortToTableView(tableNumber).setItems();  //TO-DO: put observablelist in setItems
+
+            ObservableList<Store> stores = FXCollections.observableList(new ObjectGetter().getStore());
+            sortToTableView(tableNumber).setItems(stores);
 
             /*
             managerStaffIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
