@@ -27,15 +27,38 @@ public class Customer implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
-    private Address address;
+    private Address address_obj;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "store_id")
     private Store store;
 
-    public Address getAddress() { return address; }
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", email='" + email + '\'' +
+                ", active=" + active +
+                ", create_date='" + create_date + '\'' +
+                ", last_update='" + last_update + '\'' +
+                ", address_obj=" + address_obj +
+//                ", store=" + store.toString() +
+                '}';
+    }
 
-    public void setAddress(Address address) { this.address = address; }
+    public Address getAddress_obj() {
+        return address_obj;
+    }
+
+    public void setAddress_obj(Address address_obj) {
+        this.address_obj = address_obj;
+    }
+
+    public Address getAddress() { return address_obj; }
+
+    public void setAddress(Address address) { this.address_obj = address; }
 
     public int getId() {
         return id;

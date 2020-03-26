@@ -35,21 +35,17 @@ public class Address implements Serializable {
     @Override
     public String toString() {
         return "Address{" +
-//                "CITY=" + city.getCity() +
-                ", address_id=" + address_id +
+                "address_id=" + address_id +
                 ", address='" + address + '\'' +
                 ", address2='" + address2 + '\'' +
                 ", district='" + district + '\'' +
                 ", postal_code='" + postal_code + '\'' +
                 ", phone='" + phone + '\'' +
-                ", location='" + location + '\'' +
+                ", location=" + location +
                 ", last_update='" + last_update + '\'' +
+                ", city_obj_id=" + city_obj.getCity_id() +
                 '}';
     }
-
-    public City getCity() { return city_obj; }
-
-    public void setCity(City city) { this.city_obj = city; }
 
     public int getAddress_id() {
         return address_id;
@@ -113,5 +109,13 @@ public class Address implements Serializable {
 
     public void setLast_update(String last_update) {
         this.last_update = last_update;
+    }
+
+    public City getCity_obj() {
+        return city_obj;
+    }
+
+    public void setCity_obj(City city_obj) {
+        this.city_obj = city_obj;
     }
 }

@@ -22,32 +22,22 @@ public class Staff implements Serializable {
     private int staff_id;
     @Column(name = "first_name", nullable = false)
     private String first_name;
-
     @Column(name = "last_name", nullable = false)
     private String last_name;
-
     @Column(name = "address_id", unique = true, nullable = false)
     private int address_id;
-
     @Column(name = "picture")
     private Blob picture;
-
     @Column(name = "email")
     private String email;
-
     @Column(name = "store_id", unique = true, nullable = false)
     private int store_id;
-
     @Column(name = "active", unique = true, nullable = false)
     private int active;
-
     @Column(name = "username", nullable = false)
     private String username;
-
     @Column(name = "password")
     private String password;
-
-
     @Column(name = "last_update", nullable = false)
     private String last_update;
 

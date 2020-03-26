@@ -30,7 +30,18 @@ public class Actor implements Serializable {
 	@JoinTable(name = "film_actor",
 			joinColumns = {@JoinColumn(name = "actor_id")},
 			inverseJoinColumns = {@JoinColumn(name = "film_id")})
-	private List<Film> films = new ArrayList<>();
+	private List<Film> films;
+
+	@Override
+	public String toString() {
+		return "Actor{" +
+				"actor_id=" + actor_id +
+				", first_name='" + first_name + '\'' +
+				", last_name='" + last_name + '\'' +
+				", last_update='" + last_update + '\'' +
+				", films=" + films.size() +
+				'}';
+	}
 
 	public int getActor_id() {
 		return actor_id;

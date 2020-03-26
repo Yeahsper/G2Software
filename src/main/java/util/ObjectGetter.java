@@ -10,10 +10,6 @@ import java.util.List;
 
 public class ObjectGetter {
 
-
-
-
-
     public List<Customer> getCustomer() throws Exception{
         Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -25,14 +21,13 @@ public class ObjectGetter {
         try {
             // Get matching customer object and output
             customerList = tq.getResultList();
-//            customerList.forEach(ggg ->System.out.println(ggg.toString()));
+            customerList.forEach(ggg ->System.out.println(ggg.toString()));
         } catch (
                 NoResultException ex) {
             ex.printStackTrace();
         } finally {
             session.close();
         }
-
 
         return customerList;
     }
@@ -125,49 +120,49 @@ public class ObjectGetter {
         return filmList;
     }
 
-    public List<Payment> getPayment() throws Exception{
-        Session session = HibernateUtil.getSessionFactory().openSession();
+//    public List<Payment> getPayment() throws Exception{
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//
+//        session.beginTransaction();
+//
+//        String query = "Select c from Payment c Where c IS not null";
+//        TypedQuery<Payment> tq = session.createQuery(query, Payment.class);
+//        List<Payment> paymentList = new ArrayList<>();
+//        try {
+//            // Get matching customer object and output
+//            paymentList = tq.getResultList();
+//            paymentList.forEach(ggg ->System.out.println(ggg.toString()));
+//        } catch (
+//                NoResultException ex) {
+//            ex.printStackTrace();
+//        } finally {
+//            session.close();
+//        }
+//
+//        return paymentList;
+//    }
 
-        session.beginTransaction();
-
-        String query = "Select c from Payment c Where c IS not null";
-        TypedQuery<Payment> tq = session.createQuery(query, Payment.class);
-        List<Payment> paymentList = new ArrayList<>();
-        try {
-            // Get matching customer object and output
-            paymentList = tq.getResultList();
-            paymentList.forEach(ggg ->System.out.println(ggg.toString()));
-        } catch (
-                NoResultException ex) {
-            ex.printStackTrace();
-        } finally {
-            session.close();
-        }
-
-        return paymentList;
-    }
-
-    public List<Rental> getRental() throws Exception{
-        Session session = HibernateUtil.getSessionFactory().openSession();
-
-        session.beginTransaction();
-
-        String query = "Select c from Rental c Where c IS not null";
-        TypedQuery<Rental> tq = session.createQuery(query, Rental.class);
-        List<Rental> rentalList = new ArrayList<>();
-        try {
-            // Get matching customer object and output
-            rentalList = tq.getResultList();
-            rentalList.forEach(ggg ->System.out.println(ggg.toString()));
-        } catch (
-                NoResultException ex) {
-            ex.printStackTrace();
-        } finally {
-            session.close();
-        }
-
-        return rentalList;
-    }
+//    public List<Rental> getRental() throws Exception{
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//
+//        session.beginTransaction();
+//
+//        String query = "Select c from Rental c Where c IS not null";
+//        TypedQuery<Rental> tq = session.createQuery(query, Rental.class);
+//        List<Rental> rentalList = new ArrayList<>();
+//        try {
+//            // Get matching customer object and output
+//            rentalList = tq.getResultList();
+//            rentalList.forEach(ggg ->System.out.println(ggg.toString()));
+//        } catch (
+//                NoResultException ex) {
+//            ex.printStackTrace();
+//        } finally {
+//            session.close();
+//        }
+//
+//        return rentalList;
+//    }
 
     public List<Staff> getStaff() throws Exception{
         Session session = HibernateUtil.getSessionFactory().openSession();

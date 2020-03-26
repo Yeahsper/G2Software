@@ -17,16 +17,26 @@ public class Store implements Serializable {
 
     // Connects customers to store
     @OneToMany(mappedBy = "store")
-    List<Customer> customerList;
+    private List<Customer> customerList = new ArrayList<>();
 
     // Connects store to address
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address_obj;
 
-    //TODO change XXX to the onetoone jointable from Staff class.
-//    @OneToOne(mappedBy="XXX")
+//    @OneToOne(mappedBy="staff_id")
 //    private Staff manager;
+
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "id=" + id +
+                ", customerList=" + customerList +
+                ", address_obj=" + address_obj +
+//                ", manager=" + manager.getStaff_id() +
+                '}';
+    }
 
     public int getId() {
         return id;
