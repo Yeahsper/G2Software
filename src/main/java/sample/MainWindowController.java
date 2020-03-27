@@ -20,11 +20,13 @@ public class MainWindowController implements Initializable {
     @FXML
     private TextField textField1, textField2, textField3, textField4, textField5, textField6;
     @FXML
-    private TextField textField7, textField8, textField9, textField10, textField11, textField12, textField13;
+    private TextField textField7, textField8, textField9, textField10, textField11, textField12;
     @FXML
-    private ChoiceBox<String> choiceBox1, choiceBox2, insertChoiceBox, choiceBox3, choiceBox4, choiceBox5;
+    private ChoiceBox<String> choiceBox1, choiceBox2, choiceBox3, choiceBox4, choiceBox5, insertChoiceBox;
     @FXML
     private TableView<?> tableView1, tableView2, tableView3, tableView4;
+    @FXML
+    private Button insertPictureBtn;
     @FXML
     private ListView listView;
 
@@ -33,31 +35,33 @@ public class MainWindowController implements Initializable {
             "Inventory", "Language", "Payment", "Rental", "Staff", "Store");
 
     private TextField[] textFieldsArray;
-    private String[] promptTextActor = new String[]{"First name", "Last name", "Last update"};
-    private String[] promptTextAddress = new String[]{"Address", "Second address", "District", "City_id",
+    private String[] promptTextActorArray = new String[]{"First name", "Last name", "Last update"};
+    private String[] promptTextAddressArray = new String[]{"Address", "Second address", "District", "City_id",
             "Postal code", "Phone", "Location", "Last update"};
-    private String[] promptTextCategory = new String[]{"Category", "Last update"};
-    private String[] promptTextCity = new String[]{"City", "Country id", "Last update"};
-    private String[] promptTextCountry = new String[]{"Country", "Last update"};
-    private String[] promptTextCustomer = new String[]{"Store id", "First name", "Last name", "Email",
+    private String[] promptTextCategoryArray = new String[]{"Category", "Last update"};
+    private String[] promptTextCityArray = new String[]{"City", "Country id", "Last update"};
+    private String[] promptTextCountryArray = new String[]{"Country", "Last update"};
+    private String[] promptTextCustomerArray = new String[]{"Store id", "First name", "Last name", "Email",
             "Address id", "Active", "Create date", "Last update"};
-    private String[] promptTextFilm = new String[]{"Title", "Description", "Release year", "Language id",
+    private String[] promptTextFilmArray = new String[]{"Title", "Description", "Release year", "Language id",
             "Original language id", "Rental duration", "Rental rate", "Length", "Replacement cost", "Rating",
             "Special features", "Last update"};
-    private String[] promptTextInventory = new String[]{"Film id", "Store id", "Last update"};
-    private String[] promptTextLanguage = new String[]{"Language", "Last update"};
-    private String[] promptTextPayment = new String[]{"Customer id", "Staff id", "Rental id", "Amount",
+    private String[] promptTextInventoryArray = new String[]{"Film id", "Store id", "Last update"};
+    private String[] promptTextLanguageArray = new String[]{"Language", "Last update"};
+    private String[] promptTextPaymentArray = new String[]{"Customer id", "Staff id", "Rental id", "Amount",
             "Payment date", "Last update"};
-    private String[] promptTextRental = new String[]{"Rental date", "Inventory id", "Customer id", "Return date",
+    private String[] promptTextRentalArray = new String[]{"Rental date", "Inventory id", "Customer id", "Return date",
             "Staff id", "Last update"};
-    private String[] promptTextStaff = new String[]{"First name", "Last name", "Address id", "PICTURE?", "Email",
+    private String[] promptTextStaffArray = new String[]{"First name", "Last name", "Address id", "Email",
             "Store id", "Active", "Username", "Password", "Last update"};
-    private String[] promptTextStore = new String[]{"Manager staff id", "Address id", "Last update"};
+    private String[] promptTextStoreArray = new String[]{"Manager staff id", "Address id", "Last update"};
 
 
     @FXML
     void insert(ActionEvent event) {
 
+
+        insertPictureBtn.setVisible(false);
     }
 
     @FXML
@@ -77,6 +81,11 @@ public class MainWindowController implements Initializable {
 
     @FXML
     void showJointTables(ActionEvent event) {
+
+    }
+
+    @FXML
+    void insertStaffPicture(ActionEvent event) {
 
     }
 
@@ -105,50 +114,24 @@ public class MainWindowController implements Initializable {
         makeTextFieldsInvisible();
 
         switch (insertChoiceBox.getSelectionModel().getSelectedItem().toUpperCase()) {
-            case "ACTOR":
-                makeTextFieldsVisible(promptTextActor);
-                break;
-            case "ADDRESS":
-                makeTextFieldsVisible(promptTextAddress);
-                break;
-            case "CATEGORY":
-                makeTextFieldsVisible(promptTextCategory);
-                break;
-            case "CITY":
-                makeTextFieldsVisible(promptTextCity);
-                break;
-            case "COUNTRY":
-                makeTextFieldsVisible(promptTextCountry);
-                break;
-            case "CUSTOMER":
-                makeTextFieldsVisible(promptTextCustomer);
-                break;
-            case "FILM":
-                makeTextFieldsVisible(promptTextFilm);
-                break;
-            case "INVENTORY":
-                makeTextFieldsVisible(promptTextInventory);
-                break;
-            case "LANGUAGE":
-                makeTextFieldsVisible(promptTextLanguage);
-                break;
-            case "PAYMENT":
-                makeTextFieldsVisible(promptTextPayment);
-                break;
-            case "RENTAL":
-                makeTextFieldsVisible(promptTextRental);
-                break;
-            case "STAFF":
-                makeTextFieldsVisible(promptTextStaff);
-                break;
-            case "STORE":
-                makeTextFieldsVisible(promptTextStore);
-                break;
+            case "ACTOR": makeTextFieldsVisible(promptTextActorArray); break;
+            case "ADDRESS": makeTextFieldsVisible(promptTextAddressArray); break;
+            case "CATEGORY": makeTextFieldsVisible(promptTextCategoryArray); break;
+            case "CITY": makeTextFieldsVisible(promptTextCityArray); break;
+            case "COUNTRY": makeTextFieldsVisible(promptTextCountryArray); break;
+            case "CUSTOMER": makeTextFieldsVisible(promptTextCustomerArray); break;
+            case "FILM": makeTextFieldsVisible(promptTextFilmArray); break;
+            case "INVENTORY": makeTextFieldsVisible(promptTextInventoryArray); break;
+            case "LANGUAGE": makeTextFieldsVisible(promptTextLanguageArray); break;
+            case "PAYMENT": makeTextFieldsVisible(promptTextPaymentArray); break;
+            case "RENTAL": makeTextFieldsVisible(promptTextRentalArray); break;
+            case "STAFF": makeTextFieldsVisible(promptTextStaffArray); insertPictureBtn.setVisible(true); break;
+            case "STORE": makeTextFieldsVisible(promptTextStoreArray); break;
         }
     }
 
 
-    public void makeTextFieldsVisible(String[]promptText) {
+    public void makeTextFieldsVisible(String[] promptText) {
         for (int i = 0; i < promptText.length; i++) {
             textFieldsArray[i].setVisible(true);
             textFieldsArray[i].setPromptText(promptText[i]);
@@ -185,16 +168,11 @@ public class MainWindowController implements Initializable {
     public TableView sortToTableView(int tableNumber) {
 
         switch (tableNumber) {
-            case 1:
-                return tableView1;
-            case 2:
-                return tableView2;
-            case 3:
-                return tableView3;
-            case 4:
-                return tableView4;
-            default:
-                return null;
+            case 1: return tableView1;
+            case 2: return tableView2;
+            case 3: return tableView3;
+            case 4: return tableView4;
+            default: return null;
         }
     }
 
@@ -762,8 +740,7 @@ public class MainWindowController implements Initializable {
 
             usernameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             usernameCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setUsername(t.getNewValue());
-            });
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setUsername(t.getNewValue());});
 
             passwordCol.setCellFactory(TextFieldTableCell.forTableColumn());
             passwordCol.setOnEditCommit(t -> {
@@ -826,9 +803,8 @@ public class MainWindowController implements Initializable {
         textFieldsArray = new TextField[]{textField1, textField2, textField3, textField4, textField5, textField6,
                 textField7, textField8, textField9, textField10, textField11, textField12};
 
+        insertPictureBtn.setVisible(false);
         tableView2.setEditable(true);
-        //tableView3.setEditable(true);
-        //tableView4.setEditable(true);
         makeTextFieldsInvisible();
     }
 }
