@@ -25,6 +25,8 @@ public class Film implements Serializable {
     private double rental_rate;
     @Column(name = "length", nullable = false)
     private int length;
+    @Column(name = "original_language_id", nullable = false)
+    private int original_language_id;
     @Column(name = "original_language", nullable = false)
     private int original_language;
     @Column(name = "replacement_cost", nullable = false)
@@ -70,6 +72,14 @@ public class Film implements Serializable {
                 ", actorList_size=" + actorList.size() +
                 '}';
     }
+
+    public int getOriginal_language_id() { return original_language_id; }
+
+    public void setOriginal_language_id(int original_language_id) { this.original_language_id = original_language_id; }
+
+    public int getOriginal_language() { return original_language; }
+
+    public void setOriginal_language(int original_language) { this.original_language = original_language; }
 
     public Category getCategory() {
         return category;
@@ -182,4 +192,9 @@ public class Film implements Serializable {
     public void setLast_update(String last_update) {
         this.last_update = last_update;
     }
+
+    // Getters and Setters for GUI Controller
+    public int getLanguage_obj_id() { return language_obj.getLanguage_id(); }
+
+    public void setLanguage_id(int new_id) { /* update id = new_id for THIS Object */ }
 }

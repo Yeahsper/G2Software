@@ -9,7 +9,6 @@ import org.hibernate.Session;
 import tables.*;
 import util.HibernateUtil;
 import util.ObjectGetterOLD;
-
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
@@ -50,7 +49,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws Exception {
-//        System.out.println(objectGetter.getRental().get(0).getCustomer_obj().getAddress());
+        System.out.println(objectGetter.getRental().get(0).getCustomer_obj().getAddress());
 //        getAddresses();
 //        launch(args);
     }

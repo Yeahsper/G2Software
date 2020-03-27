@@ -41,9 +41,7 @@ public class Inventory implements Serializable {
         this.inventory_id = inventory_id;
     }
 
-    public String getLast_update() {
-        return last_update;
-    }
+    public String getLast_update() { return last_update; }
 
     public void setLast_update(String last_update) {
         this.last_update = last_update;
@@ -64,4 +62,15 @@ public class Inventory implements Serializable {
     public void setStore(Store store) {
         this.store = store;
     }
+
+    // Getters and Setters for GUI Controller
+    public int getStore_obj_id() { return store.getId(); }
+
+    public void setStore_id(int new_id) { /* update id = new_id for THIS Object */ }
+
+    public int getFilm_obj_id() {
+        return film_OBJ.getFilm_id();
+    }
+
+    public void setFilm_id(int new_id) { /* update id = new_id for THIS Object */ }
 }

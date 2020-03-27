@@ -109,4 +109,21 @@ public class Payment implements Serializable {
 //                ", rental_id=" + rental_obj.getRental_id() +
                 '}';
     }
+
+    // Getters and Setters for GUI Controller
+    public int getCustomer_obj_id() { return customer_obj.getCustomer_id();}
+
+    public void setCustomer_id(int new_id) { /* update id = new_id for THIS Object */ }
+
+    public int getStaff_obj_id() {
+        return staff_obj.getStaff_id();
+    }
+
+    public void setStaff_id(int new_id) { /* update id = new_id for THIS Object */ }
+
+    public int getRental_obj_id() {
+        return rental_obj.getRental_id();
+    }
+
+    public void setRental_id(int new_id) { /* update id = new_id for THIS Object */ }
 }

@@ -109,4 +109,21 @@ public class Rental implements Serializable {
                 ", staff_id=" + staff_obj.getFirst_name() +
                 '}';
     }
+
+    // Getters and Setters for GUI Controller
+    public int getInventory_obj_id() {
+        return inventory_obj.getInventory_id();
+    }
+
+    public void setInventory_id(int new_id) { /* update id = new_id for THIS Object */ }
+
+    public int getCustomer_obj_id() { return customer_obj.getCustomer_id(); }
+
+    public void setCustomer_id(int new_id) { /* update id = new_id for THIS Object */ }
+
+    public int getStaff_obj_id() {
+        return staff_obj.getStaff_id();
+    }
+
+    public void setStaff_id(int new_id) { /* update id = new_id for THIS Object */ }
 }

@@ -118,4 +118,11 @@ public class Address implements Serializable {
     public void setCity_obj(City city_obj) {
         this.city_obj = city_obj;
     }
+
+    // Getters and Setters for GUI Controller
+    public int getCity_obj_id() {
+        return city_obj.getCity_id();
+    }
+
+    public void setCity_id(int new_id) { /* update city_id = new_id for THIS Object */ }
 }
