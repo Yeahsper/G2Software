@@ -20,14 +20,16 @@
         <mapping class="tables.Address"/>
         <mapping class="tables.Language"/>
         <mapping class="tables.Actor"/>
-        <mapping class="tables.Customer"/>
-        <mapping class="tables.Store"/>
         <mapping class="tables.Category"/>
         <mapping class="tables.City"/>
         <mapping class="tables.Country"/>
         <mapping class="tables.Inventory"/>
         <mapping class="tables.Staff"/>
+        <mapping class="tables.Payment"/>
+        <mapping class="tables.Rental"/>
         <mapping class="tables.Film"/>
+
+
 
     </session-factory>
 

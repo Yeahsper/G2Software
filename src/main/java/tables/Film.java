@@ -25,8 +25,6 @@ public class Film implements Serializable {
     private double rental_rate;
     @Column(name = "length", nullable = false)
     private int length;
-    @Column(name = "original_language", nullable = false)
-    private int original_language;
     @Column(name = "replacement_cost", nullable = false)
     private double replacement_cost;
     @Column(name = "rating", nullable = false)
@@ -39,6 +37,10 @@ public class Film implements Serializable {
     @OneToOne
     @JoinColumn(name = "language_id")
     private Language language_obj;
+
+    @OneToOne
+    @JoinColumn(name = "original_language_id")
+    private Language original_language_obj;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(name="film_category", joinColumns = @JoinColumn(name = "film_id"),
@@ -64,12 +66,16 @@ public class Film implements Serializable {
                 ", rating='" + rating + '\'' +
                 ", special_features='" + special_features + '\'' +
                 ", last_update='" + last_update + '\'' +
+//                ", oroginal_language_id='" + original_language_obj +
                 ", language_obj=" + language_obj.getName() +
-                ", original_language=" + original_language +
                 ", category=" + category.getName() +
                 ", actorList_size=" + actorList.size() +
                 '}';
     }
+
+    public Language getOriginal_language_obj() { return original_language_obj; }
+
+    public void setOriginal_language_obj(Language original_language_obj) { this.original_language_obj = original_language_obj; }
 
     public Category getCategory() {
         return category;
@@ -182,4 +188,13 @@ public class Film implements Serializable {
     public void setLast_update(String last_update) {
         this.last_update = last_update;
     }
+
+    // Getters and Setters for GUI Controller
+    public int getLanguage_obj_id() { return language_obj.getLanguage_id(); }
+
+    public void setLanguage_id(int new_id) { /* update id = new_id for THIS Object */ }
+
+    public int getOriginal_language_obj_id() { return original_language_obj.getLanguage_id(); }
+
+    public void setOriginal_language_id(int new_id) { /* update id = new_id for THIS Object */ }
 }

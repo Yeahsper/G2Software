@@ -28,11 +28,26 @@ public class Inventory implements Serializable {
         return "Inventory{" +
                 "inventory_id=" + inventory_id +
                 ", last_update='" + last_update + '\'' +
-                ", store=" + store.getId() +
+                ", film_OBJ=" + film_OBJ.getTitle() +
+                ", store=" + store.getStore_id() +
                 '}';
     }
 
-        public Film getFilm_OBJ() {
+    public int getInventory_id() {
+        return inventory_id;
+    }
+
+    public void setInventory_id(int inventory_id) {
+        this.inventory_id = inventory_id;
+    }
+
+    public String getLast_update() { return last_update; }
+
+    public void setLast_update(String last_update) {
+        this.last_update = last_update;
+    }
+
+    public Film getFilm_OBJ() {
         return film_OBJ;
     }
 
@@ -40,27 +55,22 @@ public class Inventory implements Serializable {
         this.film_OBJ = film_OBJ;
     }
 
-    public void setStore(Store store) {
-        this.store = store;
-    }
-
     public Store getStore() {
         return store;
     }
 
-    public void setLast_update(String last_update) {
-        this.last_update = last_update;
+    public void setStore(Store store) {
+        this.store = store;
     }
 
-    public void setInventory_id(int inventory_id) {
-        this.inventory_id = inventory_id;
+    // Getters and Setters for GUI Controller
+    public int getStore_obj_id() { return store.getStore_id(); }
+
+    public void setStore_id(int new_id) { /* update id = new_id for THIS Object */ }
+
+    public int getFilm_obj_id() {
+        return film_OBJ.getFilm_id();
     }
 
-    public String getLast_update() {
-        return last_update;
-    }
-
-    public int getInventory_id() {
-        return inventory_id;
-    }
+    public void setFilm_id(int new_id) { /* update id = new_id for THIS Object */ }
 }

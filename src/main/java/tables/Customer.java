@@ -2,7 +2,6 @@ package tables;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 @Entity
 @Table(name="customer")
@@ -11,7 +10,7 @@ public class Customer implements Serializable {
 
     @Id
     @Column(name="customer_id",unique = true)
-    private int id;
+    private int customer_id;
     @Column(name="first_name", nullable = false)
     private String first_name;
     @Column(name="last_name", nullable = false)
@@ -31,12 +30,12 @@ public class Customer implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "store_id")
-    private Store store;
+    private Store store_obj;
 
     @Override
     public String toString() {
         return "Customer{" +
-                "id=" + id +
+                "id=" + customer_id +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", email='" + email + '\'' +
@@ -60,12 +59,10 @@ public class Customer implements Serializable {
 
     public void setAddress(Address address) { this.address_obj = address; }
 
-    public int getId() {
-        return id;
-    }
+    public int getCustomer_id() { return customer_id; }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCustomer_id(int id) {
+        this.customer_id = id;
     }
 
     public String getFirst_name() {
@@ -116,11 +113,22 @@ public class Customer implements Serializable {
         this.last_update = last_update;
     }
 
-    public Store getStore() {
-        return store;
+    public Store getStore_obj() {
+        return store_obj;
     }
 
-    public void setStore(Store store) {
-        this.store = store;
+    public void setStore_obj(Store store_obj) {
+        this.store_obj = store_obj;
     }
+
+    // Getters and Setters for GUI Controller
+    public int getStore_obj_id() { return store_obj.getStore_id(); }
+
+    public void setStore_id(int new_id) { /* update id = new_id for THIS Object */ }
+
+    public int getAddress_obj_id() {
+        return address_obj.getAddress_id();
+    }
+
+    public void setAddress_id(int new_id) { /* update id = new_id for THIS Object */ }
 }

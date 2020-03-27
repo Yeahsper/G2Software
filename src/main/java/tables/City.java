@@ -69,11 +69,16 @@ public class City implements Serializable{
         this.addressList = addressList;
     }
 
-    public Country getCountry_obj() {
-        return country_obj;
-    }
+    public Country getCountry_obj() { return country_obj; }
 
     public void setCountry_obj(Country country_obj) {
         this.country_obj = country_obj;
     }
+
+    // Getters and Setters for GUI Controller
+    public int getCountry_obj_id() {
+        return country_obj.getCountry_id();
+    }
+
+    public void setCountry_id(int new_id) { /* update id = new_id for THIS Object */ }
 }
