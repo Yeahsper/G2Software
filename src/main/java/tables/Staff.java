@@ -45,7 +45,7 @@ public class Staff implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "store_id")
-    private Store store_id;
+    private Store store_obj;
 
     @Override
     public String toString() {
@@ -56,7 +56,7 @@ public class Staff implements Serializable {
                 ", address_id=" + address_id +
                 //  ", picture=" + picture +
                 ", email='" + email + '\'' +
-                ", store_id=" + store_id +
+                ", store_id=" + store_obj +
                 ", active=" + active +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
@@ -94,8 +94,8 @@ public class Staff implements Serializable {
         return email;
     }
 
-    public Store getStore_id() {
-        return store_id;
+    public Store getStore_obj() {
+        return store_obj;
     }
 
     public int getActive() {
@@ -139,8 +139,8 @@ public class Staff implements Serializable {
         this.email = email;
     }
 
-    public void setStore_id(Store store_id) {
-        this.store_id = store_id;
+    public void setStore_obj(Store store_id) {
+        this.store_obj = store_id;
     }
 
     public void setActive(int active) {

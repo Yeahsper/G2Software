@@ -28,11 +28,11 @@ public class Payment implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "staff_id")
-    private Staff staff_id;
+    private Staff staff_obj;
 
     @OneToOne
     @JoinColumn(name = "rental_id")
-    private Rental rental_id;
+    private Rental rental_obj;
 
     //Constructor
     public Payment() {
@@ -48,12 +48,12 @@ public class Payment implements Serializable {
         return customer_id;
     }
 
-    public Staff getStaff_id() {
-        return staff_id;
+    public Staff getStaff_obj() {
+        return staff_obj;
     }
 
-    public Rental getRental_id() {
-        return rental_id;
+    public Rental getRental_obj() {
+        return rental_obj;
     }
 
     public String getAmount() {
@@ -77,12 +77,12 @@ public class Payment implements Serializable {
         this.customer_id = customer_id;
     }
 
-    public void setStaff_id(Staff staff_id) {
-        this.staff_id = staff_id;
+    public void setStaff_obj(Staff staff_id) {
+        this.staff_obj = staff_id;
     }
 
-    public void setRental_id(Rental rental_id) {
-        this.rental_id = rental_id;
+    public void setRental_obj(Rental rental_id) {
+        this.rental_obj = rental_id;
     }
 
     public void setAmount(String amount) {
@@ -105,8 +105,8 @@ public class Payment implements Serializable {
                 ", payment_date='" + payment_date + '\'' +
                 ", last_update='" + last_update + '\'' +
                 ", customer_id=" + customer_id +
-                ", staff_id=" + staff_id +
-                ", rental_id=" + rental_id +
+                ", staff_id=" + staff_obj +
+                ", rental_id=" + rental_obj +
                 '}';
     }
 }

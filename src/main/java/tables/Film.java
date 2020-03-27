@@ -40,8 +40,6 @@ public class Film implements Serializable {
     @JoinColumn(name = "language_id")
     private Language language_obj;
 
-
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(name="film_category", joinColumns = @JoinColumn(name = "film_id"),
             inverseJoinColumns = @JoinColumn(name="category_id"))

@@ -11,7 +11,7 @@
         <property name="hibernate.connection.username">javauser</property>
         <property name="hibernate.connection.password">java</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-       	<property name="show_sql">true</property>
+       	<property name="show_sql">false</property>
        	<property name="format_sql">false</property>
        <!--	<mapping resource="concert.hbm.xml"/>
         <mapping resource="person.hbm.xml"/> -->

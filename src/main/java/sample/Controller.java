@@ -48,8 +48,7 @@ public class Controller {
         //ogm.getInventory();
        //ogm.getLanguage();
         //ogm.getStore();
-
-       //ogm.getRental();
+        //ogm.getRental();
         //ogm.getStaff();
         //ogm.getPayment();
 
