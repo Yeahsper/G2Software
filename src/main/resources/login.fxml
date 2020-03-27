@@ -9,11 +9,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="354.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginWindowController">
    <children>
-      <TextField fx:id="usernameTF" layoutX="65.0" layoutY="128.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="224.0" promptText="Username" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="128.0" />
-      <TextField fx:id="passwordTF" layoutX="66.0" layoutY="175.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="224.0" promptText="Password" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="175.0" />
-      <TextField fx:id="databaseTF" layoutX="66.0" layoutY="222.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="224.0" promptText="Database" AnchorPane.leftAnchor="66.0" AnchorPane.topAnchor="222.0" />
+      <TextField fx:id="usernameTF" layoutX="65.0" layoutY="172.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="224.0" promptText="Username" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="172.0" />
+      <TextField fx:id="passwordTF" layoutX="65.0" layoutY="219.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="224.0" promptText="Password" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="219.0" />
       <Button fx:id="loginBtn" layoutX="140.0" layoutY="292.0" mnemonicParsing="false" onAction="#login" prefHeight="39.0" prefWidth="75.0" text="Login" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="292.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="59.0" prefHeight="46.0" prefWidth="224.0" text="Login to Database" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="59.0">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="95.0" prefHeight="46.0" prefWidth="224.0" text="Login to Database" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="95.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

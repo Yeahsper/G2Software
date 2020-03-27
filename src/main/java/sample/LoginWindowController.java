@@ -19,8 +19,8 @@ public class LoginWindowController {
     @FXML
     private Button loginBtn;
 
-    @FXML
-    private TextField databaseTF;
+  //  @FXML
+   // private TextField databaseTF;
 
     @FXML
     private TextField passwordTF;
@@ -32,15 +32,13 @@ public class LoginWindowController {
         HibernateUtil.setUsername(usernameTF.getText());
         HibernateUtil.setPassword(passwordTF.getText());
 
-        String tempDB = "jdbc:mysql://localhost/" + databaseTF.getText() + "?serverTimezone=UTC";
+        String tempDB = "jdbc:mysql://localhost/sakila?serverTimezone=UTC";
         HibernateUtil.setDbConnection(tempDB);
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             session.getTransaction().commit();
             if (session.isConnected()) {
-                // MainGUI mainGUI = new MainGUI();
-                // mainGUI.display();
 
                 Parent root;
                 root = FXMLLoader.load(getClass().getClassLoader().getResource("mainWindow.fxml"));
