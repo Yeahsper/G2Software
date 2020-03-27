@@ -21,9 +21,10 @@ public class Store implements Serializable {
     private Address address_obj;
 
     //TODO change XXX to the onetoone jointable from Staff class.
-//    @OneToOne(mappedBy="XXX")
-//    private Staff manager;
-//
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="manager_staff_id")
+    private Staff staff;
+
     public int getId() {
         return id;
     }
@@ -38,13 +39,13 @@ public class Store implements Serializable {
 
   public void setAddress_obj(Address address) {     this.address_obj = address; }
 
-//    public Staff getManager() {
-//        return manager;
-//    }
-//
-//    public void setManager(Staff manager) {
-//        this.manager = manager;
-//    }
+    public Staff getManager() {
+       return staff;
+    }
+
+    public void setManager(Staff manager) {
+        this.staff = manager;
+   }
 
 
     @Override

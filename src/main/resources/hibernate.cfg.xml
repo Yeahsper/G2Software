@@ -25,6 +25,10 @@
         <mapping class="tables.Film"/>
         <mapping class="tables.Language"/>
         <mapping class="tables.Actor"/>
+        <mapping class="tables.Staff"/>
+        <mapping class="tables.Rental"/>
+        <mapping class="tables.Payment"/>
+
 
     </session-factory>
 

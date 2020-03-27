@@ -47,7 +47,11 @@ public class Controller {
         //ogm.getFilm();
         //ogm.getInventory();
        //ogm.getLanguage();
-        ogm.getStore();
+        //ogm.getStore();
+
+       //ogm.getRental();
+        //ogm.getStaff();
+        //ogm.getPayment();
 
 
 
