@@ -338,20 +338,19 @@ public class ObjectGetterOLD {
                 tq = session.createQuery("Select c from Language c Where c IS not null", Language.class);
                 break;
             case "Payment":
-                tq = session.createQuery("Select c from Payment c Where c IS not null", Payment.class);
+//                tq = session.createQuery("Select c from Payment c Where c IS not null", Payment.class);
                 break;
             case "Rental":
-                tq = session.createQuery("Select c from Rental c Where c IS not null", Rental.class);
+//                tq = session.createQuery("Select c from Rental c Where c IS not null", Rental.class);
                 break;
             case "Staff":
-                tq = session.createQuery("Select c from Staff c Where c IS not null", Staff.class);
+//                tq = session.createQuery("Select c from Staff c Where c IS not null", Staff.class);
                 break;
             case "Store":
                 tq = session.createQuery("Select c from Store c Where c IS not null", Store.class);
                 break;
             default:
                 System.out.println("Something went wrong when choosing which table to select from.");
-
         }
 
         try {

@@ -8,16 +8,15 @@ import javafx.stage.Stage;
 import org.hibernate.Session;
 import tables.*;
 import util.HibernateUtil;
-import util.ObjectGetter;
+import util.ObjectGetterOLD;
 
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 import java.util.Objects;
 
 public class Main extends Application {
-    private static ObjectGetter objectGetter = new ObjectGetter();
+    private static ObjectGetterOLD objectGetter = new ObjectGetterOLD();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -51,7 +50,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws Exception {
-        System.out.println(objectGetter.getCustomer());
+//        System.out.println(objectGetter.getRental().get(0).getCustomer_obj().getAddress());
 //        getAddresses();
 //        launch(args);
     }

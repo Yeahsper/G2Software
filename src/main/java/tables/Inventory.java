@@ -28,28 +28,13 @@ public class Inventory implements Serializable {
         return "Inventory{" +
                 "inventory_id=" + inventory_id +
                 ", last_update='" + last_update + '\'' +
+                ", film_OBJ=" + film_OBJ.getTitle() +
                 ", store=" + store.getId() +
                 '}';
     }
 
-        public Film getFilm_OBJ() {
-        return film_OBJ;
-    }
-
-    public void setFilm_OBJ(Film film_OBJ) {
-        this.film_OBJ = film_OBJ;
-    }
-
-    public void setStore(Store store) {
-        this.store = store;
-    }
-
-    public Store getStore() {
-        return store;
-    }
-
-    public void setLast_update(String last_update) {
-        this.last_update = last_update;
+    public int getInventory_id() {
+        return inventory_id;
     }
 
     public void setInventory_id(int inventory_id) {
@@ -60,7 +45,23 @@ public class Inventory implements Serializable {
         return last_update;
     }
 
-    public int getInventory_id() {
-        return inventory_id;
+    public void setLast_update(String last_update) {
+        this.last_update = last_update;
+    }
+
+    public Film getFilm_OBJ() {
+        return film_OBJ;
+    }
+
+    public void setFilm_OBJ(Film film_OBJ) {
+        this.film_OBJ = film_OBJ;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
     }
 }

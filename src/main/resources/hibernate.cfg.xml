@@ -27,7 +27,11 @@
         <mapping class="tables.Country"/>
         <mapping class="tables.Inventory"/>
         <mapping class="tables.Staff"/>
+        <mapping class="tables.Payment"/>
+        <mapping class="tables.Rental"/>
         <mapping class="tables.Film"/>
+
+
 
     </session-factory>
 
