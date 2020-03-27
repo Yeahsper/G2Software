@@ -45,7 +45,7 @@ public class LoginWindowController {
                 Stage stage = new Stage();
                 stage.setTitle("");
                 stage.setResizable(false);
-                stage.setScene(new Scene(root, 1200, 600));
+                stage.setScene(new Scene(root, 1193, 588));
 
                 stage.setAlwaysOnTop(true);
                 stage.show();
