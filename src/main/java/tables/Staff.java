@@ -13,28 +13,20 @@ public class Staff implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "staff_id", unique = true)
     private int staff_id;
-
     @Column(name = "first_name", nullable = false)
     private String first_name;
-
     @Column(name = "last_name", nullable = false)
     private String last_name;
-
     @Column(name = "picture", nullable = false)
     private Blob picture;
-
     @Column(name = "email", nullable = false)
     private String email;
-
     @Column(name = "active", nullable = false)
     private int active;
-
     @Column(name = "username", nullable = false)
     private String username;
-
     @Column(name = "password", nullable = false)
     private String password;
-
     @Column(name = "last_update", nullable = false)
     private String last_update;
 
@@ -42,7 +34,7 @@ public class Staff implements Serializable {
     @JoinColumn(name = "address_id")
     private Address address_obj;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "store_id")
     private Store store_obj;
 
@@ -55,7 +47,7 @@ public class Staff implements Serializable {
                 ", address_id=" + address_obj.getAddress_id() +
 //                ", picture=" + picture +
                 ", email='" + email + '\'' +
-                ", store_id=" + store_obj.getId() +
+                ", store_id=" + store_obj.getStore_id() +
                 ", active=" + active +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
@@ -156,4 +148,13 @@ public class Staff implements Serializable {
     public void setLast_update(String last_update) {
         this.last_update = last_update;
     }
+
+    // Getters and Setters for GUI Controller
+    public int getAddress_obj_id() { return address_obj.getAddress_id(); }
+
+    public void setAddress_id(int new_id) { /* update id = new_id for THIS Object */ }
+
+    public int getStore_obj_id() { return store_obj.getStore_id(); }
+
+    public void setStore_id(int new_id) { /* update id = new_id for THIS Object */ }
 }

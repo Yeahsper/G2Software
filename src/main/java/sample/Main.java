@@ -49,7 +49,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws Exception {
-        System.out.println(objectGetter.getRental().get(0).getCustomer_obj().getAddress());
+        System.out.println(objectGetter.getStore().get(0).getManager_staff_obj_id());
 //        getAddresses();
 //        launch(args);
     }

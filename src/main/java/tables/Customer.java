@@ -2,7 +2,6 @@ package tables;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 @Entity
 @Table(name="customer")
@@ -31,7 +30,7 @@ public class Customer implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "store_id")
-    private Store store;
+    private Store store_obj;
 
     @Override
     public String toString() {
@@ -114,18 +113,16 @@ public class Customer implements Serializable {
         this.last_update = last_update;
     }
 
-    public Store getStore() {
-        return store;
+    public Store getStore_obj() {
+        return store_obj;
     }
 
-    public void setStore(Store store) {
-        this.store = store;
+    public void setStore_obj(Store store_obj) {
+        this.store_obj = store_obj;
     }
 
     // Getters and Setters for GUI Controller
-    public int getStore_obj_id() {
-        return store.getId();
-    }
+    public int getStore_obj_id() { return store_obj.getStore_id(); }
 
     public void setStore_id(int new_id) { /* update id = new_id for THIS Object */ }
 

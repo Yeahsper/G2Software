@@ -29,7 +29,7 @@ public class Inventory implements Serializable {
                 "inventory_id=" + inventory_id +
                 ", last_update='" + last_update + '\'' +
                 ", film_OBJ=" + film_OBJ.getTitle() +
-                ", store=" + store.getId() +
+                ", store=" + store.getStore_id() +
                 '}';
     }
 
@@ -64,7 +64,7 @@ public class Inventory implements Serializable {
     }
 
     // Getters and Setters for GUI Controller
-    public int getStore_obj_id() { return store.getId(); }
+    public int getStore_obj_id() { return store.getStore_id(); }
 
     public void setStore_id(int new_id) { /* update id = new_id for THIS Object */ }
 

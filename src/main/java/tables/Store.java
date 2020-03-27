@@ -13,12 +13,12 @@ public class Store implements Serializable {
 
     @Id
     @Column(name="store_id",unique = true)
-    private int id;
+    private int store_id;
     @Column(name="last_update", nullable = false)
     private String last_update;
 
     // Connects customers to store
-    @OneToMany(mappedBy = "store")
+    @OneToMany(mappedBy = "store_obj")
     private List<Customer> customerList = new ArrayList<>();
 
     // Connects store to address
@@ -26,25 +26,26 @@ public class Store implements Serializable {
     @JoinColumn(name = "address_id")
     private Address address_obj;
 
-    @OneToOne(mappedBy="staff_id")
-    private Staff staff_obj;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "manager_staff_id")
+    private Staff manager_staff_obj;
 
 
     @Override
     public String toString() {
         return "Store{" +
-                "id=" + id +
-                ", customerList=" + customerList +
-                ", address_obj=" + address_obj +
+                "id=" + store_id +
+                ", customerList=" + customerList.size() +
+                ", address_obj=" + address_obj.getAddress_id() +
                 '}';
     }
 
-    public int getId() {
-        return id;
+    public int getStore_id() {
+        return store_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStore_id(int store_id) {
+        this.store_id = store_id;
     }
 
     public String getLast_update() {
@@ -71,20 +72,18 @@ public class Store implements Serializable {
         this.address_obj = address_obj;
     }
 
-    public Staff getStaff_obj() {
-        return staff_obj;
+    public Staff getManager_staff_obj() {
+        return manager_staff_obj;
     }
 
-    public void setStaff_obj(Staff staff_obj) {
-        this.staff_obj = staff_obj;
+    public void setManager_staff_obj(Staff manager_staff_obj) {
+        this.manager_staff_obj = manager_staff_obj;
     }
 
     // Getters and Setters for GUI Controller
-    public int getStaff_obj_id() {
-        return staff_obj.getStaff_id();
-    }
+    public int getManager_staff_obj_id() { return manager_staff_obj.getStaff_id(); }
 
-    public void setStaff_id(int new_id) { /* update id = new_id for THIS Object */ }
+    public void setManager_staff_id(int new_id) { /* update id = new_id for THIS Object */ }
 
     public int getAddress_obj_id() {
         return address_obj.getAddress_id();

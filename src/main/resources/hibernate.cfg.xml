@@ -20,8 +20,6 @@
         <mapping class="tables.Address"/>
         <mapping class="tables.Language"/>
         <mapping class="tables.Actor"/>
-        <mapping class="tables.Customer"/>
-        <mapping class="tables.Store"/>
         <mapping class="tables.Category"/>
         <mapping class="tables.City"/>
         <mapping class="tables.Country"/>
