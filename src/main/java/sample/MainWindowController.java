@@ -33,22 +33,31 @@ public class MainWindowController implements Initializable {
             "Inventory", "Language", "Payment", "Rental", "Staff", "Store");
 
     private TextField[] textFieldsArray;
+    private String[] promptTextActor = new String[]{"First name", "Last name", "Last update"};
+    private String[] promptTextAddress = new String[]{"Address", "Second address", "District", "City_id",
+            "Postal code", "Phone", "Location", "Last update"};
+    private String[] promptTextCategory = new String[]{"Category", "Last update"};
+    private String[] promptTextCity = new String[]{"City", "Country id", "Last update"};
+    private String[] promptTextCountry = new String[]{"Country", "Last update"};
+    private String[] promptTextCustomer = new String[]{"Store id", "First name", "Last name", "Email",
+            "Address id", "Active", "Create date", "Last update"};
+    private String[] promptTextFilm = new String[]{"Title", "Description", "Release year", "Language id",
+            "Original language id", "Rental duration", "Rental rate", "Length", "Replacement cost", "Rating",
+            "Special features", "Last update"};
+    private String[] promptTextInventory = new String[]{"Film id", "Store id", "Last update"};
+    private String[] promptTextLanguage = new String[]{"Language", "Last update"};
+    private String[] promptTextPayment = new String[]{"Customer id", "Staff id", "Rental id", "Amount",
+            "Payment date", "Last update"};
+    private String[] promptTextRental = new String[]{"Rental date", "Inventory id", "Customer id", "Return date",
+            "Staff id", "Last update"};
+    private String[] promptTextStaff = new String[]{"First name", "Last name", "Address id", "PICTURE?", "Email",
+            "Store id", "Active", "Username", "Password", "Last update"};
+    private String[] promptTextStore = new String[]{"Manager staff id", "Address id", "Last update"};
+
 
     @FXML
     void insert(ActionEvent event) {
 
-    }
-
-    public void makeTextFieldsVisible(int nr) {
-        for (int i = 0; i < nr; i++) {
-            textFieldsArray[i].setVisible(true);
-        }
-    }
-
-    public void makeTextFieldsInvisible() {
-        for (TextField textField : textFieldsArray) {
-            textField.setVisible(false);
-        }
     }
 
     @FXML
@@ -97,44 +106,58 @@ public class MainWindowController implements Initializable {
 
         switch (insertChoiceBox.getSelectionModel().getSelectedItem().toUpperCase()) {
             case "ACTOR":
-                makeTextFieldsVisible(4);
+                makeTextFieldsVisible(promptTextActor);
                 break;
             case "ADDRESS":
-                makeTextFieldsVisible(9);
+                makeTextFieldsVisible(promptTextAddress);
                 break;
             case "CATEGORY":
-                makeTextFieldsVisible(3);
+                makeTextFieldsVisible(promptTextCategory);
                 break;
             case "CITY":
-                makeTextFieldsVisible(4);
+                makeTextFieldsVisible(promptTextCity);
                 break;
             case "COUNTRY":
-                makeTextFieldsVisible(3);
+                makeTextFieldsVisible(promptTextCountry);
                 break;
             case "CUSTOMER":
-                makeTextFieldsVisible(9);
+                makeTextFieldsVisible(promptTextCustomer);
                 break;
             case "FILM":
-                makeTextFieldsVisible(13);
+                makeTextFieldsVisible(promptTextFilm);
                 break;
             case "INVENTORY":
-                makeTextFieldsVisible(4);
+                makeTextFieldsVisible(promptTextInventory);
                 break;
             case "LANGUAGE":
-                makeTextFieldsVisible(3);
+                makeTextFieldsVisible(promptTextLanguage);
                 break;
             case "PAYMENT":
-                makeTextFieldsVisible(7);
+                makeTextFieldsVisible(promptTextPayment);
                 break;
             case "RENTAL":
-                makeTextFieldsVisible(7);
+                makeTextFieldsVisible(promptTextRental);
                 break;
             case "STAFF":
-                makeTextFieldsVisible(11);
+                makeTextFieldsVisible(promptTextStaff);
                 break;
             case "STORE":
-                makeTextFieldsVisible(4);
+                makeTextFieldsVisible(promptTextStore);
                 break;
+        }
+    }
+
+
+    public void makeTextFieldsVisible(String[]promptText) {
+        for (int i = 0; i < promptText.length; i++) {
+            textFieldsArray[i].setVisible(true);
+            textFieldsArray[i].setPromptText(promptText[i]);
+        }
+    }
+
+    public void makeTextFieldsInvisible() {
+        for (TextField textField : textFieldsArray) {
+            textField.setVisible(false);
         }
     }
 
@@ -531,10 +554,10 @@ public class MainWindowController implements Initializable {
 
 
         } else if (table.equals("Inventory")) {
-            TableColumn <Inventory, Number>inventoryIdCol = new TableColumn<>("Inventory id");
-            TableColumn <Inventory, Number>filmIdCol = new TableColumn<>("Film id");
-            TableColumn <Inventory, Number>storeIdCol = new TableColumn<>("Store id");
-            TableColumn <Inventory, String>lastUpdateCol = new TableColumn<>("Last update");
+            TableColumn<Inventory, Number> inventoryIdCol = new TableColumn<>("Inventory id");
+            TableColumn<Inventory, Number> filmIdCol = new TableColumn<>("Film id");
+            TableColumn<Inventory, Number> storeIdCol = new TableColumn<>("Store id");
+            TableColumn<Inventory, String> lastUpdateCol = new TableColumn<>("Last update");
 
             inventoryIdCol.setCellValueFactory(new PropertyValueFactory<>("inventory_id"));
             filmIdCol.setCellValueFactory(new PropertyValueFactory<>("film_id"));
@@ -559,8 +582,8 @@ public class MainWindowController implements Initializable {
 
             lastUpdateCol.setCellFactory(TextFieldTableCell.forTableColumn());
             lastUpdateCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
-
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());
+            });
 
 
         } else if (table.equals("Language")) {
@@ -685,17 +708,17 @@ public class MainWindowController implements Initializable {
              */
 
         } else if (table.equals("Staff")) {
-            TableColumn <Staff, Number>idCol = new TableColumn<>("Staff id");
-            TableColumn <Staff, String>firstNameCol = new TableColumn<>("First Name");
-            TableColumn <Staff, String>lastNameCol = new TableColumn<>("Last Name");
-            TableColumn <Staff, Number>addressIdCol = new TableColumn<>("Address id");
+            TableColumn<Staff, Number> idCol = new TableColumn<>("Staff id");
+            TableColumn<Staff, String> firstNameCol = new TableColumn<>("First Name");
+            TableColumn<Staff, String> lastNameCol = new TableColumn<>("Last Name");
+            TableColumn<Staff, Number> addressIdCol = new TableColumn<>("Address id");
             TableColumn pictureCol = new TableColumn<>("Picture");
-            TableColumn <Staff, String>emailCol = new TableColumn<>("Email");
-            TableColumn <Staff, Number>storeIdCol = new TableColumn<>("Store id");
-            TableColumn <Staff, Number>activeCol = new TableColumn<>("Active");
-            TableColumn <Staff, String>usernameCol = new TableColumn<>("Username");
-            TableColumn <Staff, String>passwordCol = new TableColumn<>("Password");
-            TableColumn <Staff, String>lastUpdateCol = new TableColumn<>("Last update");
+            TableColumn<Staff, String> emailCol = new TableColumn<>("Email");
+            TableColumn<Staff, Number> storeIdCol = new TableColumn<>("Store id");
+            TableColumn<Staff, Number> activeCol = new TableColumn<>("Active");
+            TableColumn<Staff, String> usernameCol = new TableColumn<>("Username");
+            TableColumn<Staff, String> passwordCol = new TableColumn<>("Password");
+            TableColumn<Staff, String> lastUpdateCol = new TableColumn<>("Last update");
 
             idCol.setCellValueFactory(new PropertyValueFactory<>("staff_id"));
             firstNameCol.setCellValueFactory(new PropertyValueFactory<>("first_name"));
@@ -726,28 +749,31 @@ public class MainWindowController implements Initializable {
 
             emailCol.setCellFactory(TextFieldTableCell.forTableColumn());
             emailCol.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setEmail(t.getNewValue()));
-/*
+
             storeIdCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
             storeIdCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setStore_OBJ(t.getNewValue().intValue());});
-
- */
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setStore_id(t.getNewValue().intValue());
+            });
 
             activeCol.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
             activeCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setActive(t.getNewValue().intValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setActive(t.getNewValue().intValue());
+            });
 
             usernameCol.setCellFactory(TextFieldTableCell.forTableColumn());
             usernameCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setUsername(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setUsername(t.getNewValue());
+            });
 
             passwordCol.setCellFactory(TextFieldTableCell.forTableColumn());
             passwordCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setPassword(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setPassword(t.getNewValue());
+            });
 
             lastUpdateCol.setCellFactory(TextFieldTableCell.forTableColumn());
             lastUpdateCol.setOnEditCommit(t -> {
-                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());});
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setLast_update(t.getNewValue());
+            });
 
         } else if (table.equals("Store")) {
             TableColumn<Store, Number> storeIdCol = new TableColumn<>("Store id");
@@ -781,7 +807,6 @@ public class MainWindowController implements Initializable {
              */
 
 
-
         } else {
             System.out.println("Nothing");
             tableView1.getColumns().clear();
@@ -793,17 +818,17 @@ public class MainWindowController implements Initializable {
         choiceBox1.setItems(FXCollections.observableArrayList(databaseTablesList));
         choiceBox2.setItems(FXCollections.observableArrayList(databaseTablesList));
         insertChoiceBox.setItems(FXCollections.observableArrayList(databaseTablesList));
-        choiceBox3.setItems(FXCollections.observableArrayList(databaseTablesList));
-        choiceBox4.setItems(FXCollections.observableArrayList(databaseTablesList));
+        choiceBox3.setItems(FXCollections.observableArrayList("Actor", "Film"));
+        choiceBox4.setItems(FXCollections.observableArrayList("Film", "Category"));
         choiceBox5.setItems(FXCollections.observableArrayList(
-                "Actors in movies", "Film & categories", "Film & text"));
+                "Actors in movies", "Film & categories", "Film & description"));
 
         textFieldsArray = new TextField[]{textField1, textField2, textField3, textField4, textField5, textField6,
-                textField7, textField8, textField9, textField10, textField11, textField12, textField13};
+                textField7, textField8, textField9, textField10, textField11, textField12};
 
         tableView2.setEditable(true);
-        tableView3.setEditable(true);
-        tableView4.setEditable(true);
+        //tableView3.setEditable(true);
+        //tableView4.setEditable(true);
         makeTextFieldsInvisible();
     }
 }
